@@ -87,43 +87,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="cissx9r3z00029d9ksn24y2ow" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-how-to-create-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/07/how-to-create-blog/" class="article-date">
-  <time datetime="2016-09-07T12:56:24.000Z" itemprop="datePublished">2016-09-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/07/how-to-create-blog/">how-to-create-blog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="cissx9r3v00019d9k6cvqx54k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="cist2eat90000m59km3yw357w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,7 +132,81 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="cissx9r3p00009d9kmaabld0e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="cist2eati0002m59kpx97phlt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-to-create-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/07/how-to-create-blog/" class="article-date">
+  <time datetime="2016-09-07T02:54:26.000Z" itemprop="datePublished">2016-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/07/how-to-create-blog/">本博客搭建方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>搭建这样一个博客还是很容易的，在网上随便找一篇教程，按照上面的步骤，都基本能搞定。但搭建的过程中，随着hexo版本的更新，之前教程没出现的问题，现在可能就出现了，所以踩了一些坑(比如在git版本控制中hexo init会干掉版本控制)，趁着还记得，赶快记录下来。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>mac系统，hexo + github。也就是利用github的博客功能，但是需要自己搭建。</p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>电脑已安装node环境，已安装git,已有github帐号，并有相应的git知识。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p><em>1.创建仓库</em></p>
+<p>仓库名称为github帐号名称后面加上github.io,比如,我的github帐号为zhoucumt,那么仓库名称就是zhoucumt.github.io</p>
+<p><em>2.新建一个hexo分支</em></p>
+<p>由于在github上建立上述仓库后，默认创建了一个master分支，所以我们还需要创建另一个hexo分支，用于存放博客的源文件。直接在github网站上创建就可以了</p>
+<p><em>3.设置hexo分支为默认分支</em></p>
+<p>方法如图：<br><img src="/Users/baidu/Pictures/snip/settings.png" alt="image"><br>然后在下图中，选择hexo之后update就可以了<br><img src="/Users/baidu/Pictures/snip/default.png" alt="image"></p>
+<p><em>4.clone到本地</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@github.com:zhoucumt/zhoucumt.github.io.git</div></pre></td></tr></table></figure>
+<p>成功之后，默认就处于hexo分支了。如果失败，则检测一下有没有add SSH KEYS，这里不再叙述这个，github网上也有方法，很简单。</p>
+<p><em>5.安装hexo</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g</div></pre></td></tr></table></figure>
+<p><em>6.初始化</em></p>
+<p>完成第4步后，电脑中有了zhoucumt.github.io这个文件夹，cd进去，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong>这个时候，坑就来了，因为你会发现这个时候版本控制信息居然不见了，你需要做如下处理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure></p>
+<p>这个时候又回出现master分支了，但是hexo分支在命令行中还是没，需要我们重新再建一次。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch hexo</div></pre></td></tr></table></figure></p>
+<p>但是，你会发现这个时候还是不能新建分支，此时你需要提交主干中的代码才可以，git add. git commit -m ‘init’ 这个时候再新建分支就没问题了</p>
+<p><em>7.配置_config.yml</em></p>
+<p>打开_config.yml文件，在文件最底部添加如下代码：<br><img src="/Users/baidu/Pictures/snip/config.png" alt="image"></p>
+<p><em>8.依次执行git add .、git commit -m “…”、git push origin hexo提交网站相关的文件；</em></p>
+<p><em>9.执行hexo generate -d生成网站并部署到GitHub上</em></p>
+<h2 id="hexo常用命令：新建一篇博文"><a href="#hexo常用命令：新建一篇博文" class="headerlink" title="hexo常用命令：新建一篇博文"></a>hexo常用命令：新建一篇博文</h2><p><em>1.新建</em></p>
+<p>在zhoucumt.github.io（具体文件夹名称以你自己的github帐号不同而不同）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new <span class="string">'how-to-create-blog'</span></div></pre></td></tr></table></figure></p>
+<p>注：可以看到此时source/_post中生成了how-to-create-blog.md,然后你就可以编辑你的博客了</p>
+<p><em>2.启动本地服务器</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://localhost:4000,这个时候应该就可以看到生成的初始静态页面了（hexo低版本可能不能出现）" target="_blank" rel="external">http://localhost:4000,这个时候应该就可以看到生成的初始静态页面了（hexo低版本可能不能出现）</a></p>
+<p><em>3.生成编译后的静态文件</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<p>注：可以看到此时生成了public这个文件夹</p>
+<p><em>4.发布到github</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p>访问<a href="http://https://zhoucumt.github.io/" target="_blank" rel="external">link</a>就可以看到发布的博客文章了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="cist2eate0001m59k1jzhw3cp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,11 +250,11 @@
           </li>
         
           <li>
-            <a href="/2016/09/07/how-to-create-blog/">how-to-create-blog</a>
+            <a href="/2016/09/07/hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2016/09/07/hello-world/">Hello World</a>
+            <a href="/2016/09/07/how-to-create-blog/">本博客搭建方法</a>
           </li>
         
       </ul>
