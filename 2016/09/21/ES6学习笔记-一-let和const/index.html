@@ -5,19 +5,25 @@
   
   <title>ES6学习笔记(一):let和const | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、let1.所声明的变量，只在let命令所在的代码块内有效。2.for循环的计数器，就很合适使用let命令。
-12345678var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6">
+  <meta name="description" content="一、let1.所声明的变量，只在let命令所在的代码块内有效。
+2.for循环的计数器，就很合适使用let命令。
+12345678var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6
+3.不存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6学习笔记(一):let和const">
 <meta property="og:url" content="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、let1.所声明的变量，只在let命令所在的代码块内有效。2.for循环的计数器，就很合适使用let命令。
-12345678var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6">
-<meta property="og:updated_time" content="2016-09-21T12:39:24.000Z">
+<meta property="og:description" content="一、let1.所声明的变量，只在let命令所在的代码块内有效。
+2.for循环的计数器，就很合适使用let命令。
+12345678var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6
+3.不存">
+<meta property="og:updated_time" content="2016-09-21T13:39:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记(一):let和const">
-<meta name="twitter:description" content="一、let1.所声明的变量，只在let命令所在的代码块内有效。2.for循环的计数器，就很合适使用let命令。
-12345678var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6">
+<meta name="twitter:description" content="一、let1.所声明的变量，只在let命令所在的代码块内有效。
+2.for循环的计数器，就很合适使用let命令。
+12345678var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6
+3.不存">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -88,12 +94,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、let"><a href="#一、let" class="headerlink" title="一、let"></a>一、let</h3><p>1.所声明的变量，只在let命令所在的代码块内有效。<br>2.for循环的计数器，就很合适使用let命令。</p>
+        <h3 id="一、let"><a href="#一、let" class="headerlink" title="一、let"></a>一、let</h3><p>1.所声明的变量，只在let命令所在的代码块内有效。</p>
+<p>2.for循环的计数器，就很合适使用let命令。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<p>3.不存在变量提升。</p>
+<p>4.不存在变量提升：只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</p>
+<p>5.只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</p>
+<p>6.let不允许在相同作用域内，重复声明同一个变量。（注意是相同作用域）。</p>
+<p>7.ES6引入了块级作用域，明确允许在块级作用域之中声明函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="二、const"><a href="#二、const" class="headerlink" title="二、const"></a>二、const</h3><p>1.同样地，只在块级作用域有效，不可提升，存在暂时性死区，只能声明之后再使用，也不可重复声明。</p>
+<p>2.冻结对象：Object.freeze</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> foo = <span class="built_in">Object</span>.freeze(&#123;&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 常规模式时，下面一行不起作用；</span></div><div class="line"><span class="comment">// 严格模式时，该行会报错</span></div><div class="line">foo.prop = <span class="number">123</span>;</div></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="citcwbp3100007p9km08rfko9" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="citcyfisw0000cu9k6nhxrbr2" class="article-share-link">Partager</a>
       
       
     </footer>
