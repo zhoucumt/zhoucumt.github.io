@@ -108,7 +108,7 @@ hexo generate
 ``` bash
 hexo deploy
 ```
-访问[link](http://https://zhoucumt.github.io/)就可以看到发布的博客文章了。
+访问[link](https://zhoucumt.github.io/)就可以看到发布的博客文章了。
 
 
 
