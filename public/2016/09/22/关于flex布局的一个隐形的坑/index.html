@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于flex布局的一个隐形的坑 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="今天在项目开发中，偶然发现一个flex布局的小坑，一直以为flex用法挺简单，没想到在手机上显示却遇到了坑，吓得我赶快写篇博客压压惊。言归正传。
+背景： 今天做的这样一个项目，其中里面的球队对阵信息，需要一个三栏布局，由于是才开始的项目，也没有用到其他什么成熟的样式库，就自然想到了flex布局，在父元素和子元素设置的代码如下：
+ 123456789101112.xxx-parent &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于flex布局的一个隐形的坑">
+<meta property="og:url" content="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="今天在项目开发中，偶然发现一个flex布局的小坑，一直以为flex用法挺简单，没想到在手机上显示却遇到了坑，吓得我赶快写篇博客压压惊。言归正传。
+背景： 今天做的这样一个项目，其中里面的球队对阵信息，需要一个三栏布局，由于是才开始的项目，也没有用到其他什么成熟的样式库，就自然想到了flex布局，在父元素和子元素设置的代码如下：
+ 123456789101112.xxx-parent &amp;#123;">
+<meta property="og:image" content="http://chuantu.biz/t5/35/1474549369x1032300878.png">
+<meta property="og:image" content="http://chuantu.biz/t5/35/1474550059x1032300878.png">
+<meta property="og:updated_time" content="2016-09-22T13:38:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于flex布局的一个隐形的坑">
+<meta name="twitter:description" content="今天在项目开发中，偶然发现一个flex布局的小坑，一直以为flex用法挺简单，没想到在手机上显示却遇到了坑，吓得我赶快写篇博客压压惊。言归正传。
+背景： 今天做的这样一个项目，其中里面的球队对阵信息，需要一个三栏布局，由于是才开始的项目，也没有用到其他什么成熟的样式库，就自然想到了flex布局，在父元素和子元素设置的代码如下：
+ 123456789101112.xxx-parent &amp;#123;">
+<meta name="twitter:image" content="http://chuantu.biz/t5/35/1474549369x1032300878.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-关于flex布局的一个隐形的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/22/关于flex布局的一个隐形的坑/" class="article-date">
+  <time datetime="2016-09-22T13:10:31.000Z" itemprop="datePublished">2016-09-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于flex布局的一个隐形的坑
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天在项目开发中，偶然发现一个flex布局的小坑，一直以为flex用法挺简单，没想到在手机上显示却遇到了坑，吓得我赶快写篇博客压压惊。<br>言归正传。</p>
+<h3 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h3><p> 今天做的这样一个项目，其中里面的球队对阵信息，需要一个三栏布局，由于是才开始的项目，也没有用到其他什么成熟的样式库，就自然想到了flex布局，在父元素和子元素设置的代码如下：</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-class">.xxx-parent</span> &#123;</div><div class="line">    <span class="attribute">display</span>: -webkit-flex;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line"> &#125;</div><div class="line"><span class="selector-class">.child1</span>,</div><div class="line"><span class="selector-class">.child2</span>,</div><div class="line"><span class="selector-class">.child3</span> &#123;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 当然，由于球队可点，是a标签，也将a标签变成了display: block</p>
+<p> 效果图如下：</p>
+<p><img src="http://chuantu.biz/t5/35/1474549369x1032300878.png" alt="image"></p>
+<p>于是，就这样愉快的写好了，在电脑里chrome里面也没发现什么问题，直到过了几天，今天把其中一个球队的名称设置成”马刺”，才愕然发现，”已添加”这个按钮，居然没和上面的按钮对齐，向左偏移了一点。当时我就蒙蔽了，感觉世界观受到了颠覆。先上手机上的图：<br><img src="http://chuantu.biz/t5/35/1474550059x1032300878.png" alt="image"></p>
+<p>相信聪明的你一定可以发现偏移的按钮。<br>by the way,<strong> 我的手机是5s,ios8.3，一直未升级 </strong></p>
+<h3 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h3><p>第一反应，就是上caniuse去查一下flex，发现ios8.1-4需要加webkit前缀，后来也加了，依然不起作用，手机上测试了safari，微信，uc均还是一样的问题。</p>
+<p><strong> 后来同事过来，也是5s,不过系统已经升级到了最新，发现没这个问题 </strong></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>先省略其中的解决过程吧,解决方法是在子元素里面加上一个width: 1%（后来也测试了，width:1px其实也是可以的）贴出方案：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-class">.child1</span>,</div><div class="line"><span class="selector-class">.child2</span>,</div><div class="line"><span class="selector-class">.child3</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">1%</span>;</div><div class="line">    <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">flex</span>: <span class="number">1</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="citedns6o00041a9klslh0o9a" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/21/ES6学习笔记-一-let和const/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">ES6学习笔记(一):let和const</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/22/关于flex布局的一个隐形的坑/">关于flex布局的一个隐形的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/21/ES6学习笔记-一-let和const/">ES6学习笔记(一):let和const</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/how-to-create-blog/">本博客搭建方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
