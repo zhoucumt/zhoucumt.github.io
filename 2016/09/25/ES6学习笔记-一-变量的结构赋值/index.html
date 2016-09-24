@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6学习笔记(一):变量的结构赋值 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="注意点1.等号右边可以多余等号左边。
+2.等号右边也可以少于等号左边。
+3.等号右边的值一定要具有Iterator接口，比如数组
+4.关于默认值，需要注意什么时候默认值不起作用
+5.如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。
+6.对象也可以解构赋值
+1234var &amp;#123; foo, bar &amp;#125; = &amp;#123; foo: &quot;aaa&quot;, bar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6学习笔记(一):变量的结构赋值">
+<meta property="og:url" content="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="注意点1.等号右边可以多余等号左边。
+2.等号右边也可以少于等号左边。
+3.等号右边的值一定要具有Iterator接口，比如数组
+4.关于默认值，需要注意什么时候默认值不起作用
+5.如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。
+6.对象也可以解构赋值
+1234var &amp;#123; foo, bar &amp;#125; = &amp;#123; foo: &quot;aaa&quot;, bar">
+<meta property="og:updated_time" content="2016-09-24T17:00:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6学习笔记(一):变量的结构赋值">
+<meta name="twitter:description" content="注意点1.等号右边可以多余等号左边。
+2.等号右边也可以少于等号左边。
+3.等号右边的值一定要具有Iterator接口，比如数组
+4.关于默认值，需要注意什么时候默认值不起作用
+5.如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。
+6.对象也可以解构赋值
+1234var &amp;#123; foo, bar &amp;#125; = &amp;#123; foo: &quot;aaa&quot;, bar">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6学习笔记-一-变量的结构赋值" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/25/ES6学习笔记-一-变量的结构赋值/" class="article-date">
+  <time datetime="2016-09-24T16:05:36.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6学习笔记(一):变量的结构赋值
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>1.等号右边可以多余等号左边。</p>
+<p>2.等号右边也可以少于等号左边。</p>
+<p>3.等号右边的值一定要具有Iterator接口，比如数组</p>
+<p>4.关于默认值，需要注意什么时候默认值不起作用</p>
+<p>5.如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。</p>
+<p>6.对象也可以解构赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> &#123; foo, bar &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;;</div><div class="line">foo <span class="comment">// "aaa"</span></div><div class="line">bar <span class="comment">// "bbb"</span></div></pre></td></tr></table></figure>
+<p>7.注意括号的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">// 错误的写法</span></div><div class="line">    <span class="keyword">var</span> x;</div><div class="line">    &#123;x&#125; = &#123;x: <span class="number">1</span>&#125;;</div><div class="line">    <span class="comment">// SyntaxError: syntax error</span></div><div class="line">    </div><div class="line">    <span class="comment">// 正确的写法</span></div><div class="line">    (&#123;x&#125; = &#123;x: <span class="number">1</span>&#125;);</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
+<p>8.字符串的解构赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="keyword">const</span> [a, b, c, d, e] = <span class="string">'hello'</span>;</div><div class="line">a <span class="comment">// "h"</span></div><div class="line">b <span class="comment">// "e"</span></div><div class="line">c <span class="comment">// "l"</span></div><div class="line">d <span class="comment">// "l"</span></div><div class="line">e <span class="comment">// "o"</span></div></pre></td></tr></table></figure>
+<p>9.由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="keyword">let</span> &#123; prop: x &#125; = <span class="literal">undefined</span>; <span class="comment">// TypeError</span></div><div class="line"><span class="keyword">let</span> &#123; prop: y &#125; = <span class="literal">null</span>; <span class="comment">// TypeError</span></div></pre></td></tr></table></figure>
+<p>10.变量声明语句中，不能带有圆括号。</p>
+<p>11.函数参数中，模式不能带有圆括号。</p>
+<p>12.赋值语句中，不能将整个模式，或嵌套模式中的一层，放在圆括号之中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="cithg1s6e0001ak9kermb2ze0" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/22/关于flex布局的一个隐形的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">关于flex布局的一个隐形的坑</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/25/ES6学习笔记-一-变量的结构赋值/">ES6学习笔记(一):变量的结构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/22/关于flex布局的一个隐形的坑/">关于flex布局的一个隐形的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/21/ES6学习笔记-一-let和const/">ES6学习笔记(一):let和const</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
