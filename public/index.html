@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -99,11 +99,14 @@
 <p>10.变量声明语句中，不能带有圆括号。</p>
 <p>11.函数参数中，模式不能带有圆括号。</p>
 <p>12.赋值语句中，不能将整个模式，或嵌套模式中的一层，放在圆括号之中。</p>
+<p>13.解构赋值的规则是，只要等号右边的值不是对象，就先将其转为对象</p>
+<p>14.函数的参数也可以解构赋值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">[x, y]</span>) </span>&#123;</div><div class="line"> 	    <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="cithg47kv0002bt9k5zf3hviy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciumtqnjb0005wj9ku74pssvo" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -151,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="cithg47l30005bt9kjw9i3305" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="ciumtqnja0004wj9k56iagoh7" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -199,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="cithg47km0000bt9k42j2053r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="ciumtqnih0000wj9kk2fcf65t" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -235,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="cithg47l10004bt9kov6pzgc5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="ciumtqnj80003wj9k6clgpo9s" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -280,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="cithg47ks0001bt9k0z2wkngs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciumtqnj20001wj9kgkgui1kq" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -354,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="cithg47l00003bt9k8m6g26do" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="ciumtqnj50002wj9k7cv3niqq" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -389,7 +392,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -426,7 +429,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
