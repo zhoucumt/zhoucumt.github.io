@@ -23,7 +23,7 @@
 5.如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。
 6.对象也可以解构赋值
 1234var &amp;#123; foo, bar &amp;#125; = &amp;#123; foo: &quot;aaa&quot;, bar">
-<meta property="og:updated_time" content="2016-09-24T17:03:48.000Z">
+<meta property="og:updated_time" content="2016-10-23T16:07:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记(二):变量的解构赋值">
 <meta name="twitter:description" content="注意点1.等号右边可以多余等号左边。
@@ -70,9 +70,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -119,11 +119,14 @@
 <p>10.变量声明语句中，不能带有圆括号。</p>
 <p>11.函数参数中，模式不能带有圆括号。</p>
 <p>12.赋值语句中，不能将整个模式，或嵌套模式中的一层，放在圆括号之中。</p>
+<p>13.解构赋值的规则是，只要等号右边的值不是对象，就先将其转为对象</p>
+<p>14.函数的参数也可以解构赋值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">[x, y]</span>) </span>&#123;</div><div class="line"> 	    <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="cithg47kv0002bt9k5zf3hviy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciumtqnjb0005wj9ku74pssvo" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -134,7 +137,7 @@
   
   
     <a href="/2016/09/22/关于flex布局的一个隐形的坑/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">关于flex布局的一个隐形的坑</div>
     </a>
   
@@ -167,7 +170,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -204,7 +207,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
