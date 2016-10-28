@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -86,11 +86,12 @@
         <h3 id="1-Symbol值不能与其他类型的值进行运算，会报错。"><a href="#1-Symbol值不能与其他类型的值进行运算，会报错。" class="headerlink" title="1.Symbol值不能与其他类型的值进行运算，会报错。"></a>1.Symbol值不能与其他类型的值进行运算，会报错。</h3><h3 id="2-Symbol值可以显式转为字符串"><a href="#2-Symbol值可以显式转为字符串" class="headerlink" title="2.Symbol值可以显式转为字符串"></a>2.Symbol值可以显式转为字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sym = <span class="built_in">Symbol</span>(<span class="string">'My symbol'</span>);</div><div class="line"></div><div class="line"><span class="built_in">String</span>(sym) <span class="comment">// 'Symbol(My symbol)'</span></div><div class="line">sym.toString() <span class="comment">// 'Symbol(My symbol)'</span></div></pre></td></tr></table></figure>
 <h3 id="3-Symbol值也可以转为布尔值，但是不能转为数值"><a href="#3-Symbol值也可以转为布尔值，但是不能转为数值" class="headerlink" title="3.Symbol值也可以转为布尔值，但是不能转为数值"></a>3.Symbol值也可以转为布尔值，但是不能转为数值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sym = <span class="built_in">Symbol</span>();</div><div class="line"><span class="built_in">Boolean</span>(sym) <span class="comment">// true</span></div><div class="line">!sym  <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (sym) &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">Number</span>(sym) <span class="comment">// TypeError</span></div><div class="line">sym + <span class="number">2</span> <span class="comment">// TypeError</span></div></pre></td></tr></table></figure>
 <h3 id="4-Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性"><a href="#4-Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性" class="headerlink" title="4.Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性"></a>4.Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mySymbol = <span class="built_in">Symbol</span>();</div><div class="line"></div><div class="line"><span class="comment">// 第一种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line">a[mySymbol] = <span class="string">'Hello!'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 第二种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;</div><div class="line">  [mySymbol]: <span class="string">'Hello!'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 第三种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a, mySymbol, &#123; value: <span class="string">'Hello!'</span> &#125;);</div><div class="line"></div><div class="line"><span class="comment">// 以上写法都得到同样结果</span></div><div class="line">a[mySymbol] <span class="comment">// "Hello!"</span></div></pre></td></tr></table></figure>
-<h3 id="5-Symbol值作为对象属性名时，不能用点运算符"><a href="#5-Symbol值作为对象属性名时，不能用点运算符" class="headerlink" title="5.Symbol值作为对象属性名时，不能用点运算符"></a>5.Symbol值作为对象属性名时，不能用点运算符</h3><h3 id="6-Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的"><a href="#6-Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的" class="headerlink" title="6.Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的"></a>6.Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的</h3>
+<h3 id="5-Symbol值作为对象属性名时，不能用点运算符"><a href="#5-Symbol值作为对象属性名时，不能用点运算符" class="headerlink" title="5.Symbol值作为对象属性名时，不能用点运算符"></a>5.Symbol值作为对象属性名时，不能用点运算符</h3><h3 id="6-Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的"><a href="#6-Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的" class="headerlink" title="6.Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的"></a>6.Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的</h3><h3 id="7-Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object-keys-、Object-getOwnPropertyNames-返回。但是，它也不是私有属性，有一个Object-getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object-getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。"><a href="#7-Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object-keys-、Object-getOwnPropertyNames-返回。但是，它也不是私有属性，有一个Object-getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object-getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。" class="headerlink" title="7.Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object.getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。"></a>7.Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object.getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> a = <span class="built_in">Symbol</span>(<span class="string">'a'</span>);</div><div class="line"><span class="keyword">var</span> b = <span class="built_in">Symbol</span>(<span class="string">'b'</span>);</div><div class="line"></div><div class="line">obj[a] = <span class="string">'Hello'</span>;</div><div class="line">obj[b] = <span class="string">'World'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> objectSymbols = <span class="built_in">Object</span>.getOwnPropertySymbols(obj);</div><div class="line"></div><div class="line">objectSymbols</div><div class="line"><span class="comment">// [Symbol(a), Symbol(b)]</span></div></pre></td></tr></table></figure>
+<h3 id="8-另一个新的API，Reflect-ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。"><a href="#8-另一个新的API，Reflect-ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。" class="headerlink" title="8.另一个新的API，Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。"></a>8.另一个新的API，Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">  [<span class="built_in">Symbol</span>(<span class="string">'my_key'</span>)]: <span class="number">1</span>,</div><div class="line">  enum: <span class="number">2</span>,</div><div class="line">  nonEnum: <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">Reflect</span>.ownKeys(obj)</div><div class="line"><span class="comment">// [Symbol(my_key), 'enum', 'nonEnum']</span></div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="ciutg4rl80000sx9kxdii0dvn" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="ciuthbcg50000w39k10tq4gy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciutg4rle0001sx9kxab66mr3" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciuthbcgg0002w39kf280nt2i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -193,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="ciutg4rlt0006sx9k8a7iqmxo" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="ciuthbcgq0006w39kx3zndn59" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="ciutg4rlh0002sx9ke2djb69d" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="ciuthbcgc0001w39kj3ic569e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -277,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="ciutg4rlr0005sx9koeeaajte" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="ciuthbcgm0005w39kk3f94qm3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciutg4rlk0003sx9kzzoz2dfk" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciuthbcgi0003w39k18xrzo8c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -396,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="ciutg4rlo0004sx9kw4uq3067" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="ciuthbcgk0004w39k7i0oz8mv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -421,7 +422,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
     </div>
@@ -431,7 +432,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
