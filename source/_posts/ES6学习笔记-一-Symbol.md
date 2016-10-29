@@ -79,3 +79,7 @@ let obj = {
 Reflect.ownKeys(obj)
 // [Symbol(my_key), 'enum', 'nonEnum']
 ```
+
+### 9.Symbol.for()，Symbol.keyFor()
+
+### 10.Symbol.hasInstance
