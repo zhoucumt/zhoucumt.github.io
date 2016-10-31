@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6学习笔记(五):Set数据结构 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
+3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6学习笔记(五):Set数据结构">
+<meta property="og:url" content="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
+3.">
+<meta property="og:updated_time" content="2016-10-31T16:19:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6学习笔记(五):Set数据结构">
+<meta name="twitter:description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
+3.">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6学习笔记-一Set数据结构" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/01/ES6学习笔记-一Set数据结构/" class="article-date">
+  <time datetime="2016-10-31T16:57:51.000Z" itemprop="datePublished">2016-11-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6学习笔记(五):Set数据结构
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。"><a href="#1-ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。" class="headerlink" title="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。"></a>1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</h4><h4 id="2-Set本身是一个构造函数，用来生成Set数据结构。"><a href="#2-Set本身是一个构造函数，用来生成Set数据结构。" class="headerlink" title="2.Set本身是一个构造函数，用来生成Set数据结构。"></a>2.Set本身是一个构造函数，用来生成Set数据结构。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].map(x =&gt; s.add(x));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> s) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2 3 5 4</span></div></pre></td></tr></table></figure>
+<h4 id="3-Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。"><a href="#3-Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。" class="headerlink" title="3.Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。"></a>3.Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 例一</span></div><div class="line"><span class="keyword">var</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>]);</div><div class="line">[...set]</div><div class="line"><span class="comment">// [1, 2, 3, 4]</span></div><div class="line"></div><div class="line"><span class="comment">// 例二</span></div><div class="line"><span class="keyword">var</span> items = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>]);</div><div class="line">items.size <span class="comment">// 5</span></div><div class="line"></div><div class="line"><span class="comment">// 例三</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">divs</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> [...document.querySelectorAll(<span class="string">'div'</span>)];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>(divs());</div><div class="line">set.size <span class="comment">// 56</span></div><div class="line"></div><div class="line"><span class="comment">// 类似于</span></div><div class="line">divs().forEach(div =&gt; set.add(div));</div><div class="line">set.size <span class="comment">// 56</span></div></pre></td></tr></table></figure>
+<h4 id="4-利用Set实现最简单的数组去重方法"><a href="#4-利用Set实现最简单的数组去重方法" class="headerlink" title="4.利用Set实现最简单的数组去重方法"></a>4.利用Set实现最简单的数组去重方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 去除数组的重复成员</span></div><div class="line">[...new <span class="built_in">Set</span>(array)]</div></pre></td></tr></table></figure>
+<h5 id="5-在Set内部，两个NaN是相等。"><a href="#5-在Set内部，两个NaN是相等。" class="headerlink" title="5.在Set内部，两个NaN是相等。"></a>5.在Set内部，两个NaN是相等。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"><span class="keyword">let</span> a = <span class="literal">NaN</span>;</div><div class="line"><span class="keyword">let</span> b = <span class="literal">NaN</span>;</div><div class="line">set.add(a);</div><div class="line">set.add(b);</div><div class="line">set <span class="comment">// Set &#123;NaN&#125;</span></div></pre></td></tr></table></figure>
+<h5 id="6-两个对象总是不相等的"><a href="#6-两个对象总是不相等的" class="headerlink" title="6.两个对象总是不相等的"></a>6.两个对象总是不相等的</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">set.add(&#123;&#125;);</div><div class="line">set.size <span class="comment">// 1</span></div><div class="line"></div><div class="line">set.add(&#123;&#125;);</div><div class="line">set.size <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciuy9ub1t00048h9k1h53uuhh" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/31/ES6学习笔记-一Proxy/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">ES6学习笔记(四):Proxy</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/01/ES6学习笔记-一Set数据结构/">ES6学习笔记(五):Set数据结构</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/31/ES6学习笔记-一Proxy/">ES6学习笔记(四):Proxy</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/ES6学习笔记-一-Symbol/">ES6学习笔记(三):Symbol</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/25/ES6学习笔记-一-变量的结构赋值/">ES6学习笔记(二):变量的解构赋值</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/22/关于flex布局的一个隐形的坑/">关于flex布局的一个隐形的坑</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
