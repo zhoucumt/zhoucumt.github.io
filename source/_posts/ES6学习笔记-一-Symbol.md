@@ -83,3 +83,7 @@ Reflect.ownKeys(obj)
 ### 9.Symbol.for()，Symbol.keyFor()
 
 ### 10.Symbol.hasInstance
+
+### 11.Symbol.isConcatSpreadable
+
+### 12.Symbol.species 
