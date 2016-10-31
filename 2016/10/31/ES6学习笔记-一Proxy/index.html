@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。12345678910var obj = new Proxy(&amp;#123;&amp;#125;, &amp;#123;  get: function (target, key, receiver) &amp;#123;    console.log(`getting $&amp;">
-<meta property="og:updated_time" content="2016-10-31T12:40:30.000Z">
+<meta property="og:updated_time" content="2016-10-31T15:46:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记(四):Proxy">
 <meta name="twitter:description" content="1.Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。12345678910var obj = new Proxy(&amp;#123;&amp;#125;, &amp;#123;  get: function (target, key, receiver) &amp;#123;    console.log(`getting $&amp;">
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -89,10 +89,11 @@
 <h4 id="2-要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作"><a href="#2-要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作" class="headerlink" title="2.要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作"></a>2.要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params">target, property</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">35</span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">proxy.time <span class="comment">// 35</span></div><div class="line">proxy.name <span class="comment">// 35</span></div><div class="line">proxy.title <span class="comment">// 35</span></div></pre></td></tr></table></figure>
 <h4 id="3-get"><a href="#3-get" class="headerlink" title="3.get()"></a>3.get()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  name: <span class="string">"张三"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(person, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params">target, property</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (property <span class="keyword">in</span> target) &#123;</div><div class="line">      <span class="keyword">return</span> target[property];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(<span class="string">"Property \""</span> + property + <span class="string">"\" does not exist."</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">proxy.name <span class="comment">// "张三"</span></div><div class="line">proxy.age <span class="comment">// 抛出一个错误</span></div></pre></td></tr></table></figure>
 <h4 id="4-get方法可以继承"><a href="#4-get方法可以继承" class="headerlink" title="4.get方法可以继承"></a>4.get方法可以继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> proto = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get(target, propertyKey, receiver) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'GET '</span>+propertyKey);</div><div class="line">    <span class="keyword">return</span> target[propertyKey];</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(proto);</div><div class="line">obj.xxx <span class="comment">// "GET xxx"</span></div></pre></td></tr></table></figure>
+<h4 id="5-set"><a href="#5-set" class="headerlink" title="5.set()"></a>5.set()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> validator = &#123;</div><div class="line">  set: <span class="function"><span class="keyword">function</span>(<span class="params">obj, prop, value</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (prop === <span class="string">'age'</span>) &#123;</div><div class="line">      <span class="keyword">if</span> (!<span class="built_in">Number</span>.isInteger(value)) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'The age is not an integer'</span>);</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> (value &gt; <span class="number">200</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">RangeError</span>(<span class="string">'The age seems invalid'</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 对于age以外的属性，直接保存</span></div><div class="line">    obj[prop] = value;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, validator);</div><div class="line"></div><div class="line">person.age = <span class="number">100</span>;</div><div class="line"></div><div class="line">person.age <span class="comment">// 100</span></div><div class="line">person.age = <span class="string">'young'</span> <span class="comment">// 报错</span></div><div class="line">person.age = <span class="number">300</span> <span class="comment">// 报错</span></div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciuxlgvpo00017j9ktete9piz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciuy9ub1l00018h9kd4ex3op4" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -101,9 +102,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2016/11/01/ES6学习笔记-一Set数据结构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          ES6学习笔记(五):Set数据结构
+        
+      </div>
+    </a>
+  
   
     <a href="/2016/10/28/ES6学习笔记-一-Symbol/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">ES6学习笔记(三):Symbol</div>
     </a>
   
@@ -128,7 +138,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
     </div>
   </div>
 
@@ -136,9 +146,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/01/ES6学习笔记-一Set数据结构/">ES6学习笔记(五):Set数据结构</a>
+          </li>
         
           <li>
             <a href="/2016/10/31/ES6学习笔记-一Proxy/">ES6学习笔记(四):Proxy</a>
@@ -156,10 +170,6 @@
             <a href="/2016/09/22/关于flex布局的一个隐形的坑/">关于flex布局的一个隐形的坑</a>
           </li>
         
-          <li>
-            <a href="/2016/09/21/ES6学习笔记-一-let和const/">ES6学习笔记(一):let和const</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -173,7 +183,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
