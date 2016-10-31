@@ -61,6 +61,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ES6学习笔记-一Proxy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/31/ES6学习笔记-一Proxy/" class="article-date">
+  <time datetime="2016-10-31T04:57:51.000Z" itemprop="datePublished">2016-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/31/ES6学习笔记-一Proxy/">ES6学习笔记(四):Proxy</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。"><a href="#1-Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。" class="headerlink" title="1.Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。"></a>1.Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span> (<span class="params">target, key, receiver</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`getting <span class="subst">$&#123;key&#125;</span>!`</span>);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key, receiver);</div><div class="line">  &#125;,</div><div class="line">  set: <span class="function"><span class="keyword">function</span> (<span class="params">target, key, value, receiver</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`setting <span class="subst">$&#123;key&#125;</span>!`</span>);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, value, receiver);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="2-要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作"><a href="#2-要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作" class="headerlink" title="2.要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作"></a>2.要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params">target, property</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">35</span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">proxy.time <span class="comment">// 35</span></div><div class="line">proxy.name <span class="comment">// 35</span></div><div class="line">proxy.title <span class="comment">// 35</span></div></pre></td></tr></table></figure>
+<h4 id="3-get"><a href="#3-get" class="headerlink" title="3.get()"></a>3.get()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  name: <span class="string">"张三"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(person, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params">target, property</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (property <span class="keyword">in</span> target) &#123;</div><div class="line">      <span class="keyword">return</span> target[property];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(<span class="string">"Property \""</span> + property + <span class="string">"\" does not exist."</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">proxy.name <span class="comment">// "张三"</span></div><div class="line">proxy.age <span class="comment">// 抛出一个错误</span></div></pre></td></tr></table></figure>
+<h4 id="4-get方法可以继承"><a href="#4-get方法可以继承" class="headerlink" title="4.get方法可以继承"></a>4.get方法可以继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> proto = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get(target, propertyKey, receiver) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'GET '</span>+propertyKey);</div><div class="line">    <span class="keyword">return</span> target[propertyKey];</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(proto);</div><div class="line">obj.xxx <span class="comment">// "GET xxx"</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciuxlgvpo00017j9ktete9piz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ES6学习笔记-一-Symbol" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/10/28/ES6学习笔记-一-Symbol/" class="article-date">
@@ -88,10 +127,11 @@
 <h3 id="4-Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性"><a href="#4-Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性" class="headerlink" title="4.Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性"></a>4.Symbol值可以作为标识符，用于对象的属性名，就能保证不会出现同名的属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mySymbol = <span class="built_in">Symbol</span>();</div><div class="line"></div><div class="line"><span class="comment">// 第一种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line">a[mySymbol] = <span class="string">'Hello!'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 第二种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;</div><div class="line">  [mySymbol]: <span class="string">'Hello!'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 第三种写法</span></div><div class="line"><span class="keyword">var</span> a = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(a, mySymbol, &#123; value: <span class="string">'Hello!'</span> &#125;);</div><div class="line"></div><div class="line"><span class="comment">// 以上写法都得到同样结果</span></div><div class="line">a[mySymbol] <span class="comment">// "Hello!"</span></div></pre></td></tr></table></figure>
 <h3 id="5-Symbol值作为对象属性名时，不能用点运算符"><a href="#5-Symbol值作为对象属性名时，不能用点运算符" class="headerlink" title="5.Symbol值作为对象属性名时，不能用点运算符"></a>5.Symbol值作为对象属性名时，不能用点运算符</h3><h3 id="6-Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的"><a href="#6-Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的" class="headerlink" title="6.Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的"></a>6.Symbol类型还可以用于定义一组常量，保证这组常量的值都是不相等的</h3><h3 id="7-Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object-keys-、Object-getOwnPropertyNames-返回。但是，它也不是私有属性，有一个Object-getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object-getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。"><a href="#7-Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object-keys-、Object-getOwnPropertyNames-返回。但是，它也不是私有属性，有一个Object-getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object-getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。" class="headerlink" title="7.Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object.getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。"></a>7.Symbol作为属性名，该属性不会出现在for…in、for…of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有Symbol属性名。Object.getOwnPropertySymbols方法返回一个数组，成员是当前对象的所有用作属性名的Symbol值。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> a = <span class="built_in">Symbol</span>(<span class="string">'a'</span>);</div><div class="line"><span class="keyword">var</span> b = <span class="built_in">Symbol</span>(<span class="string">'b'</span>);</div><div class="line"></div><div class="line">obj[a] = <span class="string">'Hello'</span>;</div><div class="line">obj[b] = <span class="string">'World'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> objectSymbols = <span class="built_in">Object</span>.getOwnPropertySymbols(obj);</div><div class="line"></div><div class="line">objectSymbols</div><div class="line"><span class="comment">// [Symbol(a), Symbol(b)]</span></div></pre></td></tr></table></figure>
 <h3 id="8-另一个新的API，Reflect-ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。"><a href="#8-另一个新的API，Reflect-ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。" class="headerlink" title="8.另一个新的API，Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。"></a>8.另一个新的API，Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和Symbol键名。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">  [<span class="built_in">Symbol</span>(<span class="string">'my_key'</span>)]: <span class="number">1</span>,</div><div class="line">  enum: <span class="number">2</span>,</div><div class="line">  nonEnum: <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">Reflect</span>.ownKeys(obj)</div><div class="line"><span class="comment">// [Symbol(my_key), 'enum', 'nonEnum']</span></div></pre></td></tr></table></figure>
+<h3 id="9-Symbol-for-，Symbol-keyFor"><a href="#9-Symbol-for-，Symbol-keyFor" class="headerlink" title="9.Symbol.for()，Symbol.keyFor()"></a>9.Symbol.for()，Symbol.keyFor()</h3><h3 id="10-Symbol-hasInstance"><a href="#10-Symbol-hasInstance" class="headerlink" title="10.Symbol.hasInstance"></a>10.Symbol.hasInstance</h3><h3 id="11-Symbol-isConcatSpreadable"><a href="#11-Symbol-isConcatSpreadable" class="headerlink" title="11.Symbol.isConcatSpreadable"></a>11.Symbol.isConcatSpreadable</h3><h3 id="12-Symbol-species"><a href="#12-Symbol-species" class="headerlink" title="12.Symbol.species"></a>12.Symbol.species</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="ciuthbcg50000w39k10tq4gy5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="ciuxlgvph00007j9kraq9m13d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciuthbcgg0002w39kf280nt2i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciuxlgvpr00027j9kpxbxlq01" class="article-share-link">Share</a>
       
       
     </footer>
@@ -194,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="ciuthbcgq0006w39kx3zndn59" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="ciuxlgvq400077j9k78f95rvi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -242,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="ciuthbcgc0001w39kj3ic569e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="ciuxlgvpt00037j9k7cbox7xk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +318,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="ciuthbcgm0005w39kk3f94qm3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="ciuxlgvq200067j9kqhq5ywye" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciuthbcgi0003w39k18xrzo8c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciuxlgvpv00047j9ki5xc09nq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -397,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="ciuthbcgk0004w39k7i0oz8mv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="ciuxlgvpy00057j9kshuzg8tq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -437,6 +477,10 @@
       <ul>
         
           <li>
+            <a href="/2016/10/31/ES6学习笔记-一Proxy/">ES6学习笔记(四):Proxy</a>
+          </li>
+        
+          <li>
             <a href="/2016/10/28/ES6学习笔记-一-Symbol/">ES6学习笔记(三):Symbol</a>
           </li>
         
@@ -450,10 +494,6 @@
         
           <li>
             <a href="/2016/09/21/ES6学习笔记-一-let和const/">ES6学习笔记(一):let和const</a>
-          </li>
-        
-          <li>
-            <a href="/2016/09/07/test/">test</a>
           </li>
         
       </ul>
