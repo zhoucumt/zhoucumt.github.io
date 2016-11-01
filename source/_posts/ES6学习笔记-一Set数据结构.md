@@ -60,7 +60,7 @@ set // Set {NaN}
 ```
 
 ##### 6.两个对象总是不相等的
-```javascript
+``` javascript
 let set = new Set();
 
 set.add({});
@@ -68,4 +68,19 @@ set.size // 1
 
 set.add({});
 set.size // 2
+```
+
+#### 7.Array.from方法可以将Set结构转为数组
+```javascript
+var items = new Set([1, 2, 3, 4, 5]);
+var array = Array.from(items);
+```
+
+#### 8.另外一种比较简单的数组去重方法
+``` javascript
+function dedupe(array) {
+  return Array.from(new Set(array));
+}
+
+dedupe([1, 1, 2, 3]) // [1, 2, 3]
 ```
