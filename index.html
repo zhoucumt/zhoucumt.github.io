@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -88,10 +88,12 @@
 <h4 id="4-利用Set实现最简单的数组去重方法"><a href="#4-利用Set实现最简单的数组去重方法" class="headerlink" title="4.利用Set实现最简单的数组去重方法"></a>4.利用Set实现最简单的数组去重方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 去除数组的重复成员</span></div><div class="line">[...new <span class="built_in">Set</span>(array)]</div></pre></td></tr></table></figure>
 <h5 id="5-在Set内部，两个NaN是相等。"><a href="#5-在Set内部，两个NaN是相等。" class="headerlink" title="5.在Set内部，两个NaN是相等。"></a>5.在Set内部，两个NaN是相等。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"><span class="keyword">let</span> a = <span class="literal">NaN</span>;</div><div class="line"><span class="keyword">let</span> b = <span class="literal">NaN</span>;</div><div class="line">set.add(a);</div><div class="line">set.add(b);</div><div class="line">set <span class="comment">// Set &#123;NaN&#125;</span></div></pre></td></tr></table></figure>
 <h5 id="6-两个对象总是不相等的"><a href="#6-两个对象总是不相等的" class="headerlink" title="6.两个对象总是不相等的"></a>6.两个对象总是不相等的</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">set.add(&#123;&#125;);</div><div class="line">set.size <span class="comment">// 1</span></div><div class="line"></div><div class="line">set.add(&#123;&#125;);</div><div class="line">set.size <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<h4 id="7-Array-from方法可以将Set结构转为数组"><a href="#7-Array-from方法可以将Set结构转为数组" class="headerlink" title="7.Array.from方法可以将Set结构转为数组"></a>7.Array.from方法可以将Set结构转为数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]);</div><div class="line"><span class="keyword">var</span> array = <span class="built_in">Array</span>.from(items);</div></pre></td></tr></table></figure>
+<h4 id="8-另外一种比较简单的数组去重方法"><a href="#8-另外一种比较简单的数组去重方法" class="headerlink" title="8.另外一种比较简单的数组去重方法"></a>8.另外一种比较简单的数组去重方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dedupe</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(array));</div><div class="line">&#125;</div><div class="line"></div><div class="line">dedupe([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// [1, 2, 3]</span></div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciuy9ub1t00048h9k1h53uuhh" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciuyvglyl0004bd9kjb74xvlg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciuy9ub1l00018h9kd4ex3op4" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciuyvglyj0003bd9k8ffnn5yy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -172,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="ciuy9ub1f00008h9kn87gw599" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="ciuyvgly50000bd9km8czhi26" class="article-share-link">Share</a>
       
       
     </footer>
@@ -227,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciuy9ub1s00038h9kcilojy4b" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="ciuyvglyb0001bd9kbotyoows" class="article-share-link">Share</a>
       
       
     </footer>
@@ -275,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="ciuy9ub2500088h9kv27mrem8" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="ciuyvglyv0008bd9kqycu8j50" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="ciuy9ub1q00028h9k0kmq7bnl" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="ciuyvglyg0002bd9kiprjry0b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -359,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="ciuy9ub2000068h9kxu2db5xd" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="ciuyvglyt0007bd9krpyxres5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -404,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciuy9ub2300078h9kjjtxh8sc" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciuyvglyn0005bd9kkyc12giz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -478,7 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="ciuy9ub1w00058h9kcr83sxxy" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="ciuyvglyr0006bd9kdw6l6sol" class="article-share-link">Share</a>
       
       
     </footer>
@@ -513,7 +515,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -550,7 +552,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
