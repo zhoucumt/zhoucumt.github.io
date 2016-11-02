@@ -84,3 +84,33 @@ function dedupe(array) {
 
 dedupe([1, 1, 2, 3]) // [1, 2, 3]
 ```
+
+#### 9.Set结构的实例有四个遍历方法，可以用于遍历成员。
+- keys()：返回键名的遍历器
+- values()：返回键值的遍历器
+- entries()：返回键值对的遍历器
+- 使用回调函数遍历每个成员
+
+#### 10.WeakSet:
+- WeakSet的成员只能是对象，而不能是其他类型的值。
+- WeakSet中的对象都是弱引用，即垃圾回收机制不考虑WeakSet对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于WeakSet之中。这个特点意味着，无法引用WeakSet的成员，因此WeakSet是不可遍历的。
+
+```javascript
+var ws = new WeakSet();
+ws.add(1)
+// TypeError: Invalid value used in weak set
+ws.add(Symbol())
+// TypeError: invalid value used in weak set
+
+var a = [[1,2], [3,4]];
+var ws = new WeakSet(a);
+// WeakSet {[1, 2], [3, 4]}
+
+var b = [3, 4];
+var ws = new WeakSet(b);
+// Uncaught TypeError: Invalid value used in weak set(…)
+```
+
+#### 11.WeakSet没有size属性，没有办法遍历它的成员。
+
+#### 12.WeakSet的一个用处，是储存DOM节点，而不用担心这些节点从文档移除时，会引发内存泄漏。
