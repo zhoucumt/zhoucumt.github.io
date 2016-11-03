@@ -107,3 +107,36 @@ let map = new Map([
 [...map]
 // [[1,'one'], [2, 'two'], [3, 'three']]
 ```
+
+#### 9.Map转为对象
+```javascript
+function strMapToObj(strMap) {
+  let obj = Object.create(null);
+  for (let [k,v] of strMap) {
+    obj[k] = v;
+  }
+  return obj;
+}
+
+let myMap = new Map().set('yes', true).set('no', false);
+strMapToObj(myMap)
+// { yes: true, no: false }
+```
+
+#### 10.对象转为map
+```javascript
+function objToStrMap(obj) {
+  let strMap = new Map();
+  for (let k of Object.keys(obj)) {
+    strMap.set(k, obj[k]);
+  }
+  return strMap;
+}
+
+objToStrMap({yes: true, no: false})
+// [ [ 'yes', true ], [ 'no', false ] ]
+```
+
+#### 11.WeakMap结构与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。
+
+
