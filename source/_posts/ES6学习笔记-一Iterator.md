@@ -46,3 +46,70 @@ for (let item of iterable) {
   console.log(item); // 'a', 'b', 'c'
 }
 ```
+
+###7.调用Iterator的场合如下
+####1）.解构赋值
+```
+let set = new Set().add('a').add('b').add('c');
+
+let [x,y] = set;
+// x='a'; y='b'
+
+let [first, ...rest] = set;
+// first='a'; rest=['b','c'];
+```
+
+####2）扩展运算符
+```
+// 例一
+var str = 'hello';
+[...str] //  ['h','e','l','l','o']
+
+// 例二
+let arr = ['b', 'c'];
+['a', ...arr, 'd']
+// ['a', 'b', 'c', 'd']
+```
+实际上，这提供了一种简便机制，可以将任何部署了Iterator接口的数据结构，转为数组。也就是说，只要某个数据结构部署了Iterator接口，就可以对它使用扩展运算符，将其转为数组。
+####3）yield*
+yield*后面跟的是一个可遍历的结构，它会调用该结构的遍历器接口。
+
+```
+let generator = function* () {
+  yield 1;
+  yield* [2,3,4];
+  yield 5;
+};
+
+var iterator = generator();
+
+iterator.next() // { value: 1, done: false }
+iterator.next() // { value: 2, done: false }
+iterator.next() // { value: 3, done: false }
+iterator.next() // { value: 4, done: false }
+iterator.next() // { value: 5, done: false }
+iterator.next() // { value: undefined, done: true }
+```
+
+####4) 其他场合
+由于数组的遍历会调用遍历器接口，所以任何接受数组作为参数的场合，其实都调用了遍历器接口。下面是一些例子。
+
+- for...of
+- Array.from()
+- Map(), Set(), WeakMap(), WeakSet()（比如new Map([['a',1],['b',2]])）
+- Promise.all()
+- Promise.race()
+
+
+###8.字符串是一个类似数组的对象，也原生具有Iterator接口。
+```
+var someString = "hi";
+typeof someString[Symbol.iterator]
+// "function"
+
+var iterator = someString[Symbol.iterator]();
+
+iterator.next()  // { value: "h", done: false }
+iterator.next()  // { value: "i", done: false }
+iterator.next()  // { value: undefined, done: true }
+```
