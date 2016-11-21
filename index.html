@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,44 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-ES6学习笔记-一Generator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/21/ES6学习笔记-一Generator/" class="article-date">
+  <time datetime="2016-11-21T15:37:54.000Z" itemprop="datePublished">2016-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/21/ES6学习笔记-一Generator/">ES6学习笔记(八): Generator</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Generator函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同。从语法上，首先可以把它理解成，Generator函数是一个状态机，封装了多个内部状态。"><a href="#1-Generator函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同。从语法上，首先可以把它理解成，Generator函数是一个状态机，封装了多个内部状态。" class="headerlink" title="1.Generator函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同。从语法上，首先可以把它理解成，Generator函数是一个状态机，封装了多个内部状态。"></a>1.Generator函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同。从语法上，首先可以把它理解成，Generator函数是一个状态机，封装了多个内部状态。</h3><h3 id="2-执行Generator函数会返回一个遍历器对象，也就是说，Generator函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历Generator函数内部的每一个状态。"><a href="#2-执行Generator函数会返回一个遍历器对象，也就是说，Generator函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历Generator函数内部的每一个状态。" class="headerlink" title="2.执行Generator函数会返回一个遍历器对象，也就是说，Generator函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历Generator函数内部的每一个状态。"></a>2.执行Generator函数会返回一个遍历器对象，也就是说，Generator函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历Generator函数内部的每一个状态。</h3><h3 id="3-形式上，Generator函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield语句，定义不同的内部状态（yield语句在英语里的意思就是“产出”）。"><a href="#3-形式上，Generator函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield语句，定义不同的内部状态（yield语句在英语里的意思就是“产出”）。" class="headerlink" title="3.形式上，Generator函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield语句，定义不同的内部状态（yield语句在英语里的意思就是“产出”）。"></a>3.形式上，Generator函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield语句，定义不同的内部状态（yield语句在英语里的意思就是“产出”）。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function* helloWorldGenerator() &#123;</div><div class="line">  yield &apos;hello&apos;;</div><div class="line">  yield &apos;world&apos;;</div><div class="line">  return &apos;ending&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var hw = helloWorldGenerator();</div></pre></td></tr></table></figure>
+<p>调用Generator函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象</p>
+<h3 id="4-yield语句就是暂停标志。yield语句不能用在普通函数中，否则会报错。"><a href="#4-yield语句就是暂停标志。yield语句不能用在普通函数中，否则会报错。" class="headerlink" title="4.yield语句就是暂停标志。yield语句不能用在普通函数中，否则会报错。"></a>4.yield语句就是暂停标志。yield语句不能用在普通函数中，否则会报错。</h3><h3 id="5-yield语句用作函数参数或赋值表达式的右边，可以不加括号。"><a href="#5-yield语句用作函数参数或赋值表达式的右边，可以不加括号。" class="headerlink" title="5.yield语句用作函数参数或赋值表达式的右边，可以不加括号。"></a>5.yield语句用作函数参数或赋值表达式的右边，可以不加括号。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">foo(yield &apos;a&apos;, yield &apos;b&apos;); // OK</div><div class="line">let input = yield; // OK</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/21/ES6学习笔记-一Generator/" data-id="civs9ol4g00037z9kbapsicsj" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-ES6学习笔记-一Iterator" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -100,10 +138,12 @@
 <li>Promise.race()</li>
 </ul>
 <h3 id="8-字符串是一个类似数组的对象，也原生具有Iterator接口。"><a href="#8-字符串是一个类似数组的对象，也原生具有Iterator接口。" class="headerlink" title="8.字符串是一个类似数组的对象，也原生具有Iterator接口。"></a>8.字符串是一个类似数组的对象，也原生具有Iterator接口。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var someString = &quot;hi&quot;;</div><div class="line">typeof someString[Symbol.iterator]</div><div class="line">// &quot;function&quot;</div><div class="line"></div><div class="line">var iterator = someString[Symbol.iterator]();</div><div class="line"></div><div class="line">iterator.next()  // &#123; value: &quot;h&quot;, done: false &#125;</div><div class="line">iterator.next()  // &#123; value: &quot;i&quot;, done: false &#125;</div><div class="line">iterator.next()  // &#123; value: undefined, done: true &#125;</div></pre></td></tr></table></figure>
+<h3 id="9-JavaScript原有的for…in循环，只能获得对象的键名，不能直接获取键值。ES6提供for…of循环，允许遍历获得键值。"><a href="#9-JavaScript原有的for…in循环，只能获得对象的键名，不能直接获取键值。ES6提供for…of循环，允许遍历获得键值。" class="headerlink" title="9.JavaScript原有的for…in循环，只能获得对象的键名，不能直接获取键值。ES6提供for…of循环，允许遍历获得键值。"></a>9.JavaScript原有的for…in循环，只能获得对象的键名，不能直接获取键值。ES6提供for…of循环，允许遍历获得键值。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;];</div><div class="line"></div><div class="line">for (let a in arr) &#123;</div><div class="line">  console.log(a); // 0 1 2 3</div><div class="line">&#125;</div><div class="line"></div><div class="line">for (let a of arr) &#123;</div><div class="line">  console.log(a); // a b c d</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="10-for…of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。这一点跟for…in循环也不一样。"><a href="#10-for…of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。这一点跟for…in循环也不一样。" class="headerlink" title="10.for…of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。这一点跟for…in循环也不一样。"></a>10.for…of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。这一点跟for…in循环也不一样。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let arr = [3, 5, 7];</div><div class="line">arr.foo = &apos;hello&apos;;</div><div class="line"></div><div class="line">for (let i in arr) &#123;</div><div class="line">  console.log(i); // &quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;foo&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line">for (let i of arr) &#123;</div><div class="line">  console.log(i); //  &quot;3&quot;, &quot;5&quot;, &quot;7&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="civri1vm60001fn9kwmsai432" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="civs9ol4q00077z9kilyw8tyo" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -154,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/03/ES6学习笔记-一Set数据结构的副本/" data-id="civri1vmk0007fn9kv8oixtm5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/03/ES6学习笔记-一Set数据结构的副本/" data-id="civs9ol4n00067z9kdopioeej" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -208,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="civri1vmj0006fn9kzuity3u1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="civs9ol4k00057z9kd097di4n" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -248,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="civri1vmf0004fn9kruf51qp8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="civs9ol4i00047z9k12ty6rrv" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -289,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="civri1vm00000fn9kg2ixrxb0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/28/ES6学习笔记-一-Symbol/" data-id="civs9ol4500007z9keqblt26o" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -344,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="civri1vma0002fn9kiaw4du4z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="civs9ol4e00027z9kih1op08g" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -392,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="civri1vmo000afn9k8bq5caxk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="civs9ol4y000b7z9kd7cax9zx" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -440,7 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="civri1vmd0003fn9kx901x2vg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="civs9ol4a00017z9krokel8a7" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -476,52 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="civri1vmn0009fn9kbuu3f8v9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/09/07/hello-world/" class="article-date">
-  <time datetime="2016-09-07T12:36:12.000Z" itemprop="datePublished">2016-09-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/07/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="civri1vmi0005fn9k4yllt2xj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="civs9ol4t00097z9kdn4rls1g" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -560,9 +555,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/21/ES6学习笔记-一Generator/">ES6学习笔记(八): Generator</a>
+          </li>
         
           <li>
             <a href="/2016/11/19/ES6学习笔记-一Iterator/">ES6学习笔记(七): Iterator</a>
@@ -580,10 +579,6 @@
             <a href="/2016/10/31/ES6学习笔记-一Proxy/">ES6学习笔记(四):Proxy</a>
           </li>
         
-          <li>
-            <a href="/2016/10/28/ES6学习笔记-一-Symbol/">ES6学习笔记(三):Symbol</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -597,7 +592,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
