@@ -113,3 +113,30 @@ iterator.next()  // { value: "h", done: false }
 iterator.next()  // { value: "i", done: false }
 iterator.next()  // { value: undefined, done: true }
 ```
+
+### 9.JavaScript原有的for...in循环，只能获得对象的键名，不能直接获取键值。ES6提供for...of循环，允许遍历获得键值。
+```
+var arr = ['a', 'b', 'c', 'd'];
+
+for (let a in arr) {
+  console.log(a); // 0 1 2 3
+}
+
+for (let a of arr) {
+  console.log(a); // a b c d
+}
+```
+
+### 10.for...of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。这一点跟for...in循环也不一样。
+```
+let arr = [3, 5, 7];
+arr.foo = 'hello';
+
+for (let i in arr) {
+  console.log(i); // "0", "1", "2", "foo"
+}
+
+for (let i of arr) {
+  console.log(i); //  "3", "5", "7"
+}
+```
