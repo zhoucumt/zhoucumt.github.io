@@ -5,16 +5,16 @@
   
   <title>ES6学习笔记(七): Iterator | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。###3.凡是部署了Symbol.i">
+  <meta name="description" content="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。3.凡是部署了Symbol.iter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6学习笔记(七): Iterator">
 <meta property="og:url" content="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。###3.凡是部署了Symbol.i">
-<meta property="og:updated_time" content="2016-11-19T12:52:28.000Z">
+<meta property="og:description" content="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。3.凡是部署了Symbol.iter">
+<meta property="og:updated_time" content="2016-11-21T03:14:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记(七): Iterator">
-<meta name="twitter:description" content="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。###3.凡是部署了Symbol.i">
+<meta name="twitter:description" content="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。3.凡是部署了Symbol.iter">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -85,16 +85,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作"><a href="#1-遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作" class="headerlink" title="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作"></a>1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作</h4><h3 id="2-Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。"><a href="#2-Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。" class="headerlink" title="2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。"></a>2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。</h3><p>###3.凡是部署了Symbol.iterator属性的数据结构，就称为部署了遍历器接口。调用这个接口，就会返回一个遍历器对象。</p>
-<p>###4.ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的”（iterable）。</p>
-<p>###5.在ES6中，有三类数据结构原生具备Iterator接口：数组、某些类似数组的对象、Set和Map结构。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">let iter = arr[Symbol.iterator]();</div><div class="line"></div><div class="line">iter.next() // &#123; value: &apos;a&apos;, done: false &#125;</div><div class="line">iter.next() // &#123; value: &apos;b&apos;, done: false &#125;</div><div class="line">iter.next() // &#123; value: &apos;c&apos;, done: false &#125;</div><div class="line">iter.next() // &#123; value: undefined, done: true &#125;</div></pre></td></tr></table></figure></p>
-<p>###6.对于类似数组的对象（存在数值键名和length属性），部署Iterator接口，有一个简便方法，就是Symbol.iterator方法直接引用数组的Iterator接口。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];</div><div class="line">// 或者</div><div class="line">NodeList.prototype[Symbol.iterator] = [][Symbol.iterator];</div><div class="line"></div><div class="line">[...document.querySelectorAll(&apos;div&apos;)] // 可以执行了</div></pre></td></tr></table></figure></p>
+        <h4 id="1-遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作"><a href="#1-遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作" class="headerlink" title="1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作"></a>1.遍历器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署Iterator接口，就可以完成遍历操作</h4><h3 id="2-Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。"><a href="#2-Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。" class="headerlink" title="2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。"></a>2.Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for…of循环，Iterator接口主要供for…of消费。</h3><h3 id="3-凡是部署了Symbol-iterator属性的数据结构，就称为部署了遍历器接口。调用这个接口，就会返回一个遍历器对象。"><a href="#3-凡是部署了Symbol-iterator属性的数据结构，就称为部署了遍历器接口。调用这个接口，就会返回一个遍历器对象。" class="headerlink" title="3.凡是部署了Symbol.iterator属性的数据结构，就称为部署了遍历器接口。调用这个接口，就会返回一个遍历器对象。"></a>3.凡是部署了Symbol.iterator属性的数据结构，就称为部署了遍历器接口。调用这个接口，就会返回一个遍历器对象。</h3><h3 id="4-ES6规定，默认的Iterator接口部署在数据结构的Symbol-iterator属性，或者说，一个数据结构只要具有Symbol-iterator属性，就可以认为是“可遍历的”（iterable）。"><a href="#4-ES6规定，默认的Iterator接口部署在数据结构的Symbol-iterator属性，或者说，一个数据结构只要具有Symbol-iterator属性，就可以认为是“可遍历的”（iterable）。" class="headerlink" title="4.ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的”（iterable）。"></a>4.ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要具有Symbol.iterator属性，就可以认为是“可遍历的”（iterable）。</h3><h3 id="5-在ES6中，有三类数据结构原生具备Iterator接口：数组、某些类似数组的对象、Set和Map结构。"><a href="#5-在ES6中，有三类数据结构原生具备Iterator接口：数组、某些类似数组的对象、Set和Map结构。" class="headerlink" title="5.在ES6中，有三类数据结构原生具备Iterator接口：数组、某些类似数组的对象、Set和Map结构。"></a>5.在ES6中，有三类数据结构原生具备Iterator接口：数组、某些类似数组的对象、Set和Map结构。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</div><div class="line">let iter = arr[Symbol.iterator]();</div><div class="line"></div><div class="line">iter.next() // &#123; value: &apos;a&apos;, done: false &#125;</div><div class="line">iter.next() // &#123; value: &apos;b&apos;, done: false &#125;</div><div class="line">iter.next() // &#123; value: &apos;c&apos;, done: false &#125;</div><div class="line">iter.next() // &#123; value: undefined, done: true &#125;</div></pre></td></tr></table></figure>
+<h3 id="6-对于类似数组的对象（存在数值键名和length属性），部署Iterator接口，有一个简便方法，就是Symbol-iterator方法直接引用数组的Iterator接口。"><a href="#6-对于类似数组的对象（存在数值键名和length属性），部署Iterator接口，有一个简便方法，就是Symbol-iterator方法直接引用数组的Iterator接口。" class="headerlink" title="6.对于类似数组的对象（存在数值键名和length属性），部署Iterator接口，有一个简便方法，就是Symbol.iterator方法直接引用数组的Iterator接口。"></a>6.对于类似数组的对象（存在数值键名和length属性），部署Iterator接口，有一个简便方法，就是Symbol.iterator方法直接引用数组的Iterator接口。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];</div><div class="line">// 或者</div><div class="line">NodeList.prototype[Symbol.iterator] = [][Symbol.iterator];</div><div class="line"></div><div class="line">[...document.querySelectorAll(&apos;div&apos;)] // 可以执行了</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">let iterable = &#123;</div><div class="line">  0: &apos;a&apos;,</div><div class="line">  1: &apos;b&apos;,</div><div class="line">  2: &apos;c&apos;,</div><div class="line">  length: 3,</div><div class="line">  [Symbol.iterator]: Array.prototype[Symbol.iterator]</div><div class="line">&#125;;</div><div class="line">for (let item of iterable) &#123;</div><div class="line">  console.log(item); // &apos;a&apos;, &apos;b&apos;, &apos;c&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<h3 id="7-调用Iterator的场合如下"><a href="#7-调用Iterator的场合如下" class="headerlink" title="7.调用Iterator的场合如下"></a>7.调用Iterator的场合如下</h3><h4 id="1）-解构赋值"><a href="#1）-解构赋值" class="headerlink" title="1）.解构赋值"></a>1）.解构赋值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let set = new Set().add(&apos;a&apos;).add(&apos;b&apos;).add(&apos;c&apos;);</div><div class="line"></div><div class="line">let [x,y] = set;</div><div class="line">// x=&apos;a&apos;; y=&apos;b&apos;</div><div class="line"></div><div class="line">let [first, ...rest] = set;</div><div class="line">// first=&apos;a&apos;; rest=[&apos;b&apos;,&apos;c&apos;];</div></pre></td></tr></table></figure>
+<h4 id="2）扩展运算符"><a href="#2）扩展运算符" class="headerlink" title="2）扩展运算符"></a>2）扩展运算符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 例一</div><div class="line">var str = &apos;hello&apos;;</div><div class="line">[...str] //  [&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]</div><div class="line"></div><div class="line">// 例二</div><div class="line">let arr = [&apos;b&apos;, &apos;c&apos;];</div><div class="line">[&apos;a&apos;, ...arr, &apos;d&apos;]</div><div class="line">// [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]</div></pre></td></tr></table></figure>
+<p>实际上，这提供了一种简便机制，可以将任何部署了Iterator接口的数据结构，转为数组。也就是说，只要某个数据结构部署了Iterator接口，就可以对它使用扩展运算符，将其转为数组。</p>
+<h4 id="3）yield"><a href="#3）yield" class="headerlink" title="3）yield*"></a>3）yield*</h4><p>yield*后面跟的是一个可遍历的结构，它会调用该结构的遍历器接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">let generator = function* () &#123;</div><div class="line">  yield 1;</div><div class="line">  yield* [2,3,4];</div><div class="line">  yield 5;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var iterator = generator();</div><div class="line"></div><div class="line">iterator.next() // &#123; value: 1, done: false &#125;</div><div class="line">iterator.next() // &#123; value: 2, done: false &#125;</div><div class="line">iterator.next() // &#123; value: 3, done: false &#125;</div><div class="line">iterator.next() // &#123; value: 4, done: false &#125;</div><div class="line">iterator.next() // &#123; value: 5, done: false &#125;</div><div class="line">iterator.next() // &#123; value: undefined, done: true &#125;</div></pre></td></tr></table></figure>
+<h4 id="4-其他场合"><a href="#4-其他场合" class="headerlink" title="4) 其他场合"></a>4) 其他场合</h4><p>由于数组的遍历会调用遍历器接口，所以任何接受数组作为参数的场合，其实都调用了遍历器接口。下面是一些例子。</p>
+<ul>
+<li>for…of</li>
+<li>Array.from()</li>
+<li>Map(), Set(), WeakMap(), WeakSet()（比如new Map([[‘a’,1],[‘b’,2]])）</li>
+<li>Promise.all()</li>
+<li>Promise.race()</li>
+</ul>
+<h3 id="8-字符串是一个类似数组的对象，也原生具有Iterator接口。"><a href="#8-字符串是一个类似数组的对象，也原生具有Iterator接口。" class="headerlink" title="8.字符串是一个类似数组的对象，也原生具有Iterator接口。"></a>8.字符串是一个类似数组的对象，也原生具有Iterator接口。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var someString = &quot;hi&quot;;</div><div class="line">typeof someString[Symbol.iterator]</div><div class="line">// &quot;function&quot;</div><div class="line"></div><div class="line">var iterator = someString[Symbol.iterator]();</div><div class="line"></div><div class="line">iterator.next()  // &#123; value: &quot;h&quot;, done: false &#125;</div><div class="line">iterator.next()  // &#123; value: &quot;i&quot;, done: false &#125;</div><div class="line">iterator.next()  // &#123; value: undefined, done: true &#125;</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="civp7t6xy0002gu9kccjxmf6d" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="civri1vm60001fn9kwmsai432" class="article-share-link">Share</a>
       
       
     </footer>
@@ -105,7 +116,7 @@
   
   
     <a href="/2016/11/03/ES6学习笔记-一Set数据结构的副本/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">ES6学习笔记(六):Map数据结构</div>
     </a>
   
@@ -128,7 +139,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
     </div>
@@ -138,7 +149,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
