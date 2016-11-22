@@ -5,16 +5,19 @@
   
   <title>vue源码学习1--lang.js | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法1.对象操作1.1 set1234567891011121314151617181920212223242526export function s">
+  <meta name="description" content="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法1.对象操作1.1 set设置对象属性，添加新属性触发更新
+1234567891011121314151617181920212223242526">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue源码学习1--lang.js">
 <meta property="og:url" content="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法1.对象操作1.1 set1234567891011121314151617181920212223242526export function s">
-<meta property="og:updated_time" content="2016-11-22T15:50:52.000Z">
+<meta property="og:description" content="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法1.对象操作1.1 set设置对象属性，添加新属性触发更新
+1234567891011121314151617181920212223242526">
+<meta property="og:updated_time" content="2016-11-22T15:53:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue源码学习1--lang.js">
-<meta name="twitter:description" content="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法1.对象操作1.1 set1234567891011121314151617181920212223242526export function s">
+<meta name="twitter:description" content="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法1.对象操作1.1 set设置对象属性，添加新属性触发更新
+1234567891011121314151617181920212223242526">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -52,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -85,13 +88,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。"><a href="#说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。" class="headerlink" title="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。"></a>说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。</h3><h3 id="vue源码中src-util-lang-js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法"><a href="#vue源码中src-util-lang-js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法" class="headerlink" title="vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法"></a>vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法</h3><h4 id="1-对象操作"><a href="#1-对象操作" class="headerlink" title="1.对象操作"></a>1.对象操作</h4><h5 id="1-1-set"><a href="#1-1-set" class="headerlink" title="1.1 set"></a>1.1 set</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">export function set (obj, key, val) &#123;</div><div class="line">  if (hasOwn(obj, key)) &#123;</div><div class="line">    obj[key] = val</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line">  if (obj._isVue) &#123;</div><div class="line">    set(obj._data, key, val)</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line">  var ob = obj.__ob__</div><div class="line">  if (!ob) &#123;</div><div class="line">    obj[key] = val</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line">  ob.convert(key, val)</div><div class="line">  ob.dep.notify()</div><div class="line">  if (ob.vms) &#123;</div><div class="line">    var i = ob.vms.length</div><div class="line">    while (i--) &#123;</div><div class="line">      var vm = ob.vms[i]</div><div class="line">      vm._proxy(key)</div><div class="line">      vm._digest()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return val</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。"><a href="#说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。" class="headerlink" title="说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。"></a>说明：本笔记仅作为自己学习vue源码时的笔记，一边学习，一边记录疑惑，很可能许多疑惑就是很低级的疑惑，还请赐教。</h3><h3 id="vue源码中src-util-lang-js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法"><a href="#vue源码中src-util-lang-js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法" class="headerlink" title="vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法"></a>vue源码中src/util/lang.js中提供了许多工具方法。总结起来大概有对象操作、数组操作、类型转换、方法绑定、名称转换以及其他等方法</h3><h4 id="1-对象操作"><a href="#1-对象操作" class="headerlink" title="1.对象操作"></a>1.对象操作</h4><h5 id="1-1-set"><a href="#1-1-set" class="headerlink" title="1.1 set"></a>1.1 set</h5><p>设置对象属性，添加新属性触发更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">export function set (obj, key, val) &#123;</div><div class="line">  if (hasOwn(obj, key)) &#123;</div><div class="line">    obj[key] = val</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line">  if (obj._isVue) &#123;</div><div class="line">    set(obj._data, key, val)</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line">  var ob = obj.__ob__</div><div class="line">  if (!ob) &#123;</div><div class="line">    obj[key] = val</div><div class="line">    return</div><div class="line">  &#125;</div><div class="line">  ob.convert(key, val)</div><div class="line">  ob.dep.notify()</div><div class="line">  if (ob.vms) &#123;</div><div class="line">    var i = ob.vms.length</div><div class="line">    while (i--) &#123;</div><div class="line">      var vm = ob.vms[i]</div><div class="line">      vm._proxy(key)</div><div class="line">      vm._digest()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  return val</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><em>疑惑：</em> ob.convert(key, val)和ob.dep.notify()这些方法是哪里定义的</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="civtohxb1000cwg9ks4b9viwq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="civtola6y000czw9khq9hsadd" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
@@ -104,7 +108,7 @@
   
   
     <a href="/2016/11/22/ES6学习笔记-一Promise/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">ES6学习笔记(九):Promise</div>
     </a>
   
@@ -122,7 +126,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
     </div>
@@ -132,7 +136,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
     </div>
@@ -151,7 +155,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -188,7 +192,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
