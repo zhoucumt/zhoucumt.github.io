@@ -8,6 +8,8 @@ tags: vue 源码
 
 #### 1.对象操作
 ##### 1.1 set
+设置对象属性，添加新属性触发更新
+
 ```
 export function set (obj, key, val) {
   if (hasOwn(obj, key)) {
