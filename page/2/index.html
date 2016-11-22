@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,90 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-ES6学习笔记-一-let和const" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/21/ES6学习笔记-一-let和const/" class="article-date">
+  <time datetime="2016-09-21T12:08:51.000Z" itemprop="datePublished">2016-09-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/21/ES6学习笔记-一-let和const/">ES6学习笔记(一):let和const</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、let"><a href="#一、let" class="headerlink" title="一、let"></a>一、let</h3><p>1.所声明的变量，只在let命令所在的代码块内有效。</p>
+<p>2.for循环的计数器，就很合适使用let命令。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<p>3.不存在变量提升。暂时性死区:TDZ(temporal dead zone)</p>
+<p>4.不存在变量提升：只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</p>
+<p>5.只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。</p>
+<p>6.let不允许在相同作用域内，重复声明同一个变量。（注意是相同作用域）。</p>
+<p>7.ES6引入了块级作用域，明确允许在块级作用域之中声明函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="二、const"><a href="#二、const" class="headerlink" title="二、const"></a>二、const</h3><p>1.同样地，只在块级作用域有效，不可提升，存在暂时性死区，只能声明之后再使用，也不可重复声明。</p>
+<p>2.冻结对象：Object.freeze</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">const</span> foo = <span class="built_in">Object</span>.freeze(&#123;&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 常规模式时，下面一行不起作用；</span></div><div class="line"><span class="comment">// 严格模式时，该行会报错</span></div><div class="line">foo.prop = <span class="number">123</span>;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="civtohx9t0002wg9kkusalibs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/07/test/" class="article-date">
+  <time datetime="2016-09-07T13:08:18.000Z" itemprop="datePublished">2016-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/07/test/">test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="civtohxaw000bwg9kuqkkccgz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -96,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="civs9ol4v000a7z9kfdibvpld" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="civtohxaq0009wg9kk6ve6vda" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="civs9ol4s00087z9kqdcl6j7h" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="civtohxau000awg9kdt5hs3mp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -193,9 +277,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -209,9 +307,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/22/vue源码学习1--lang.js/">vue源码学习1--lang.js</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/22/ES6学习笔记-一Promise/">ES6学习笔记(九):Promise</a>
+          </li>
         
           <li>
             <a href="/2016/11/21/ES6学习笔记-一Generator/">ES6学习笔记(八): Generator</a>
@@ -223,14 +329,6 @@
         
           <li>
             <a href="/2016/11/03/ES6学习笔记-一Set数据结构的副本/">ES6学习笔记(六):Map数据结构</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/01/ES6学习笔记-一Set数据结构/">ES6学习笔记(五):Set数据结构</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/31/ES6学习笔记-一Proxy/">ES6学习笔记(四):Proxy</a>
           </li>
         
       </ul>
@@ -246,7 +344,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
