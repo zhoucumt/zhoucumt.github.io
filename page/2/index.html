@@ -61,6 +61,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ES6学习笔记-一-变量的结构赋值" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/25/ES6学习笔记-一-变量的结构赋值/" class="article-date">
+  <time datetime="2016-09-24T16:05:36.000Z" itemprop="datePublished">2016-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/25/ES6学习笔记-一-变量的结构赋值/">ES6学习笔记(二):变量的解构赋值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>1.等号右边可以多余等号左边。</p>
+<p>2.等号右边也可以少于等号左边。</p>
+<p>3.等号右边的值一定要具有Iterator接口，比如数组</p>
+<p>4.关于默认值，需要注意什么时候默认值不起作用</p>
+<p>5.如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。</p>
+<p>6.对象也可以解构赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> &#123; foo, bar &#125; = &#123; foo: <span class="string">"aaa"</span>, bar: <span class="string">"bbb"</span> &#125;;</div><div class="line">foo <span class="comment">// "aaa"</span></div><div class="line">bar <span class="comment">// "bbb"</span></div></pre></td></tr></table></figure>
+<p>7.注意括号的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">// 错误的写法</span></div><div class="line">    <span class="keyword">var</span> x;</div><div class="line">    &#123;x&#125; = &#123;x: <span class="number">1</span>&#125;;</div><div class="line">    <span class="comment">// SyntaxError: syntax error</span></div><div class="line">    </div><div class="line">    <span class="comment">// 正确的写法</span></div><div class="line">    (&#123;x&#125; = &#123;x: <span class="number">1</span>&#125;);</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
+<p>8.字符串的解构赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="keyword">const</span> [a, b, c, d, e] = <span class="string">'hello'</span>;</div><div class="line">a <span class="comment">// "h"</span></div><div class="line">b <span class="comment">// "e"</span></div><div class="line">c <span class="comment">// "l"</span></div><div class="line">d <span class="comment">// "l"</span></div><div class="line">e <span class="comment">// "o"</span></div></pre></td></tr></table></figure>
+<p>9.由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="keyword">let</span> &#123; prop: x &#125; = <span class="literal">undefined</span>; <span class="comment">// TypeError</span></div><div class="line"><span class="keyword">let</span> &#123; prop: y &#125; = <span class="literal">null</span>; <span class="comment">// TypeError</span></div></pre></td></tr></table></figure>
+<p>10.变量声明语句中，不能带有圆括号。</p>
+<p>11.函数参数中，模式不能带有圆括号。</p>
+<p>12.赋值语句中，不能将整个模式，或嵌套模式中的一层，放在圆括号之中。</p>
+<p>13.解构赋值的规则是，只要等号右边的值不是对象，就先将其转为对象</p>
+<p>14.函数的参数也可以解构赋值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">[x, y]</span>) </span>&#123;</div><div class="line"> 	    <span class="keyword">return</span> x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add([<span class="number">1</span>, <span class="number">2</span>]); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/25/ES6学习笔记-一-变量的结构赋值/" data-id="civxipb630002jr9kvvphgv91" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-关于flex布局的一个隐形的坑" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/22/关于flex布局的一个隐形的坑/" class="article-date">
@@ -99,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="civx6kbi8000f2m9k61g5zis0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/22/关于flex布局的一个隐形的坑/" data-id="civxipb6x000fjr9kylv3ys72" class="article-share-link">Share</a>
       
       
     </footer>
@@ -147,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="civx6kbhc00022m9kja17m6a0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/21/ES6学习笔记-一-let和const/" data-id="civxipb5z0001jr9kuhyttwm1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="civx6kbi7000e2m9kbif20rve" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/test/" data-id="civxipb6u000djr9kq405pisv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -228,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="civx6kbhu000a2m9k6r4tyi0x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="civxipb6q000bjr9kwhn6i6cl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -302,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="civx6kbhx000c2m9knpd9jb2k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/09/07/how-to-create-blog/" data-id="civxipb6s000cjr9k33h43xw9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,6 +415,10 @@
       <ul>
         
           <li>
+            <a href="/2016/11/25/ES6学习笔记-一class的副本/">js的多个三元操作符的用法</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/25/ES6学习笔记-一class/">ES6学习笔记(十):class</a>
           </li>
         
@@ -373,10 +432,6 @@
         
           <li>
             <a href="/2016/11/21/ES6学习笔记-一Generator/">ES6学习笔记(八): Generator</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/19/ES6学习笔记-一Iterator/">ES6学习笔记(七): Iterator</a>
           </li>
         
       </ul>
