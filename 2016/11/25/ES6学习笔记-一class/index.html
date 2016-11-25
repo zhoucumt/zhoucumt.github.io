@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016 | Hexo</title>
+  <title>ES6学习笔记(十):class | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/2/index.html">
+  <meta name="description" content="1.定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。1234567891011//定义类class Point &amp;#123;  constructor(x, y) &amp;#123;    this.x = x;    this.y = y;  &amp;#125;  toString() &amp;#123;    retur">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6学习笔记(十):class">
+<meta property="og:url" content="http://yoursite.com/2016/11/25/ES6学习笔记-一class/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。1234567891011//定义类class Point &amp;#123;  constructor(x, y) &amp;#123;    this.x = x;    this.y = y;  &amp;#125;  toString() &amp;#123;    retur">
+<meta property="og:updated_time" content="2016-11-25T02:39:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ES6学习笔记(十):class">
+<meta name="twitter:description" content="1.定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。1234567891011//定义类class Point &amp;#123;  constructor(x, y) &amp;#123;    this.x = x;    this.y = y;  &amp;#125;  toString() &amp;#123;    retur">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,120 +63,53 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/22/关于flex布局的一个隐形的坑/" class="archive-article-date">
-  <time datetime="2016-09-22T13:10:31.000Z" itemprop="datePublished">Sep 22</time>
+        <section id="main"><article id="post-ES6学习笔记-一class" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/25/ES6学习笔记-一class/" class="article-date">
+  <time datetime="2016-11-25T02:38:13.000Z" itemprop="datePublished">2016-11-25</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/22/关于flex布局的一个隐形的坑/">关于flex布局的一个隐形的坑</a>
+    <h1 class="article-title" itemprop="name">
+      ES6学习笔记(十):class
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/21/ES6学习笔记-一-let和const/" class="archive-article-date">
-  <time datetime="2016-09-21T12:08:51.000Z" itemprop="datePublished">Sep 21</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/21/ES6学习笔记-一-let和const/">ES6学习笔记(一):let和const</a>
-    </h1>
-  
+        <h3 id="1-定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。"><a href="#1-定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。" class="headerlink" title="1.定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。"></a>1.定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//定义类</div><div class="line">class Point &#123;</div><div class="line">  constructor(x, y) &#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  toString() &#123;</div><div class="line">    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/07/test/" class="archive-article-date">
-  <time datetime="2016-09-07T13:08:18.000Z" itemprop="datePublished">Sep 7</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/07/test/">test</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/07/hello-world/" class="archive-article-date">
-  <time datetime="2016-09-07T12:36:12.000Z" itemprop="datePublished">Sep 7</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/25/ES6学习笔记-一class/" data-id="civx6kbhs00092m9kh054g53l" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/07/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/09/07/how-to-create-blog/" class="archive-article-date">
-  <time datetime="2016-09-07T02:54:26.000Z" itemprop="datePublished">Sep 7</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/07/how-to-create-blog/">本博客搭建方法</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/22/vue源码学习1--lang.js/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vue源码学习1--lang.js</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/2016/">&laquo; __('prev')</a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span>
-  </nav>
 </section>
         
           <aside id="sidebar">
