@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6学习笔记(十一):export | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。2.ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。12// ES6模块import &amp;#123; stat, exists, readFi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6学习笔记(十一):export">
+<meta property="og:url" content="http://yoursite.com/2016/11/28/ES6学习笔记-一export/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。2.ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。12// ES6模块import &amp;#123; stat, exists, readFi">
+<meta property="og:updated_time" content="2016-11-28T11:18:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6学习笔记(十一):export">
+<meta name="twitter:description" content="1.ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。2.ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。12// ES6模块import &amp;#123; stat, exists, readFi">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6学习笔记-一export" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/28/ES6学习笔记-一export/" class="article-date">
+  <time datetime="2016-11-28T11:06:26.000Z" itemprop="datePublished">2016-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6学习笔记(十一):export
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。"><a href="#1-ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。" class="headerlink" title="1.ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。"></a>1.ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西。比如，CommonJS模块就是对象，输入时必须查找对象属性。</h3><h3 id="2-ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。"><a href="#2-ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。" class="headerlink" title="2.ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。"></a>2.ES6模块不是对象，而是通过export命令显式指定输出的代码，输入时也采用静态命令的形式。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// ES6模块</div><div class="line">import &#123; stat, exists, readFile &#125; from &apos;fs&apos;;</div></pre></td></tr></table></figure>
+<p>上面代码的实质是从fs模块加载3个方法，其他方法不加载。这种加载称为“编译时加载”，即ES6可以在编译时就完成模块加载，效率要比CommonJS模块的加载方式高。当然，这也导致了没法引用ES6模块本身，因为它不是对象。</p>
+<h3 id="3-浏览器使用ES6模块的语法如下。"><a href="#3-浏览器使用ES6模块的语法如下。" class="headerlink" title="3.浏览器使用ES6模块的语法如下。"></a>3.浏览器使用ES6模块的语法如下。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;module&quot; src=&quot;foo.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="4-模块的两种等价写法："><a href="#4-模块的两种等价写法：" class="headerlink" title="4.模块的两种等价写法："></a>4.模块的两种等价写法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// profile.js</div><div class="line">export var firstName = &apos;Michael&apos;;</div><div class="line">export var lastName = &apos;Jackson&apos;;</div><div class="line">export var year = 1958;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// profile.js</div><div class="line">var firstName = &apos;Michael&apos;;</div><div class="line">var lastName = &apos;Jackson&apos;;</div><div class="line">var year = 1958;</div><div class="line"></div><div class="line">export &#123;firstName, lastName, year&#125;;</div></pre></td></tr></table></figure>
+<h3 id="5-通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。"><a href="#5-通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。" class="headerlink" title="5.通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。"></a>5.通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function v1() &#123; ... &#125;</div><div class="line">function v2() &#123; ... &#125;</div><div class="line"></div><div class="line">export &#123;</div><div class="line">  v1 as streamV1,</div><div class="line">  v2 as streamV2,</div><div class="line">  v2 as streamLatestVersion</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/28/ES6学习笔记-一export/" data-id="ciw21d0y0000a599kgqj2hwoa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/export-模块化/">export 模块化</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/25/js中的三元操作符/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js的多个三元操作符的用法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/export-模块化/">export 模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/export-模块化/" style="font-size: 10px;">export 模块化</a> <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/28/ES6学习笔记-一export/">ES6学习笔记(十一):export</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/25/js中的三元操作符/">js的多个三元操作符的用法</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/25/ES6学习笔记-一class/">ES6学习笔记(十):class</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/22/vue源码学习1--lang.js/">vue源码学习1--lang.js</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/22/ES6学习笔记-一Promise/">ES6学习笔记(九):Promise</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
