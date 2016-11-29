@@ -89,11 +89,21 @@
 <h3 id="4-模块的两种等价写法："><a href="#4-模块的两种等价写法：" class="headerlink" title="4.模块的两种等价写法："></a>4.模块的两种等价写法：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// profile.js</div><div class="line">export var firstName = &apos;Michael&apos;;</div><div class="line">export var lastName = &apos;Jackson&apos;;</div><div class="line">export var year = 1958;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// profile.js</div><div class="line">var firstName = &apos;Michael&apos;;</div><div class="line">var lastName = &apos;Jackson&apos;;</div><div class="line">var year = 1958;</div><div class="line"></div><div class="line">export &#123;firstName, lastName, year&#125;;</div></pre></td></tr></table></figure>
 <h3 id="5-通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。"><a href="#5-通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。" class="headerlink" title="5.通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。"></a>5.通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function v1() &#123; ... &#125;</div><div class="line">function v2() &#123; ... &#125;</div><div class="line"></div><div class="line">export &#123;</div><div class="line">  v1 as streamV1,</div><div class="line">  v2 as streamV2,</div><div class="line">  v2 as streamLatestVersion</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="6-注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。下面的代码不会报错，因为import的执行早于foo的调用。"><a href="#6-注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。下面的代码不会报错，因为import的执行早于foo的调用。" class="headerlink" title="6.注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。下面的代码不会报错，因为import的执行早于foo的调用。"></a>6.注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。下面的代码不会报错，因为import的执行早于foo的调用。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foo();</div><div class="line"></div><div class="line">import &#123; foo &#125; from &apos;my_module&apos;;</div></pre></td></tr></table></figure>
+<h3 id="7-如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。"><a href="#7-如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。" class="headerlink" title="7.如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。"></a>7.如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export &#123; es6 as default &#125; from &apos;./someModule&apos;;</div><div class="line"></div><div class="line">// 等同于</div><div class="line">import &#123; es6 &#125; from &apos;./someModule&apos;;</div><div class="line">export default es6;</div></pre></td></tr></table></figure>
+<h3 id="8-为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export-default命令，为模块指定默认输出。"><a href="#8-为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export-default命令，为模块指定默认输出。" class="headerlink" title="8.为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。"></a>8.为了给用户提供方便，让他们不用阅读文档就能加载模块，就要用到export default命令，为模块指定默认输出。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// export-default.js</div><div class="line">export default function () &#123;</div><div class="line">  console.log(&apos;foo&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// import-default.js</div><div class="line">import customName from &apos;./export-default&apos;;</div><div class="line">customName(); // &apos;foo&apos;</div></pre></td></tr></table></figure>
+<p>需要注意的是，这时import命令后面，不使用大括号。</p>
+<h3 id="9-下面代码的两组写法，第一组是使用export-default时，对应的import语句不需要使用大括号；第二组是不使用export-default时，对应的import语句需要使用大括号。"><a href="#9-下面代码的两组写法，第一组是使用export-default时，对应的import语句不需要使用大括号；第二组是不使用export-default时，对应的import语句需要使用大括号。" class="headerlink" title="9.下面代码的两组写法，第一组是使用export default时，对应的import语句不需要使用大括号；第二组是不使用export default时，对应的import语句需要使用大括号。"></a>9.下面代码的两组写法，第一组是使用export default时，对应的import语句不需要使用大括号；第二组是不使用export default时，对应的import语句需要使用大括号。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 输出</div><div class="line">export default function crc32() &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line">// 输入</div><div class="line">import crc32 from &apos;crc32&apos;;</div><div class="line"></div><div class="line">// 输出</div><div class="line">export function crc32() &#123;</div><div class="line">  // ...</div><div class="line">&#125;;</div><div class="line">// 输入</div><div class="line">import &#123;crc32&#125; from &apos;crc32&apos;;</div></pre></td></tr></table></figure>
+<h3 id="10-正是因为export-default命令其实只是输出一个叫做default的变量，所以它后面不能跟变量声明语句。"><a href="#10-正是因为export-default命令其实只是输出一个叫做default的变量，所以它后面不能跟变量声明语句。" class="headerlink" title="10. 正是因为export default命令其实只是输出一个叫做default的变量，所以它后面不能跟变量声明语句。"></a>10. 正是因为export default命令其实只是输出一个叫做default的变量，所以它后面不能跟变量声明语句。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 正确</div><div class="line">export var a = 1;</div><div class="line"></div><div class="line">// 正确</div><div class="line">var a = 1;</div><div class="line">export default a;</div><div class="line"></div><div class="line">// 错误</div><div class="line">export default var a = 1;</div></pre></td></tr></table></figure>
+<h3 id="11-模块之间也可以继承。假设有一个circleplus模块，继承了circle模块。"><a href="#11-模块之间也可以继承。假设有一个circleplus模块，继承了circle模块。" class="headerlink" title="11.模块之间也可以继承。假设有一个circleplus模块，继承了circle模块。"></a>11.模块之间也可以继承。假设有一个circleplus模块，继承了circle模块。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// circleplus.js</div><div class="line"></div><div class="line">export * from &apos;circle&apos;;</div><div class="line">export var e = 2.71828182846;</div><div class="line">export default function(x) &#123;</div><div class="line">  return Math.exp(x);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码中的export <em>，表示再输出circle模块的所有属性和方法。注意，export </em>命令会忽略circle模块的default方法。然后，上面代码又输出了自定义的e变量和默认方法。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/28/ES6学习笔记-一export/" data-id="ciw21d0y0000a599kgqj2hwoa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/28/ES6学习笔记-一export/" data-id="ciw3hxhdn0007479kez5bl8zq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/export-模块化/">export 模块化</a></li></ul>
@@ -137,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/25/js中的三元操作符/" data-id="ciw21d0ye000f599k0fokk4yl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/25/js中的三元操作符/" data-id="ciw3hxhe4000f479kqxley5fh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/25/ES6学习笔记-一class/" data-id="ciw21d0xy0009599klm3hn296" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/25/ES6学习笔记-一class/" data-id="ciw3hxhdw000a479kpy8sbi8b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="ciw21d0yg000h599kr7qb3x9p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="ciw3hxhe6000h479k6zgd70wk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
@@ -251,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/ES6学习笔记-一Promise/" data-id="ciw21d0xn0004599kor4z825l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/ES6学习笔记-一Promise/" data-id="ciw3hxhdm0006479kcveinpid" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/ES6学习笔记-一Generator/" data-id="ciw21d0xl0003599klodf6qfj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/21/ES6学习笔记-一Generator/" data-id="ciw3hxhde0003479k9yje51de" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="ciw21d0xp0005599kq2xfz1e5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="ciw3hxhdh0004479kd8mhrtjn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -399,7 +409,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/03/ES6学习笔记-一Set数据结构的副本/" data-id="ciw21d0xx0008599k1guec1h2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/03/ES6学习笔记-一Set数据结构的副本/" data-id="ciw3hxhe0000c479k6bo1c4gn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -453,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciw21d0xv0007599kh79nasbw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciw3hxhdp0008479kji0hw2ew" class="article-share-link">Share</a>
       
       
     </footer>
@@ -493,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciw21d0xs0006599krc9k6icl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciw3hxhdk0005479khbxld87x" class="article-share-link">Share</a>
       
       
     </footer>
