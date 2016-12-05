@@ -61,6 +61,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vue学习笔记-一条件渲染" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/vue学习笔记-一条件渲染/" class="article-date">
+  <time datetime="2016-12-05T16:23:20.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/vue学习笔记-一条件渲染/">vue学习笔记:条件渲染</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-文档地址："><a href="#1-文档地址：" class="headerlink" title="1.文档地址："></a>1.文档地址：</h3><p><a href="http://vuejs.org/v2/guide/conditional.html" target="_blank" rel="external">http://vuejs.org/v2/guide/conditional.html</a></p>
+<h3 id="2-新增语法"><a href="#2-新增语法" class="headerlink" title="2.新增语法:"></a>2.新增语法:</h3><p>v-else-if:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div v-if=&quot;type === &apos;A&apos;&quot;&gt;</div><div class="line">  A</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else-if=&quot;type === &apos;B&apos;&quot;&gt;</div><div class="line">  B</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else-if=&quot;type === &apos;C&apos;&quot;&gt;</div><div class="line">  C</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else&gt;</div><div class="line">  Not A/B/C</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="3-key属性："><a href="#3-key属性：" class="headerlink" title="3.key属性："></a>3.key属性：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;</div><div class="line">  &lt;label&gt;Username&lt;/label&gt;</div><div class="line">  &lt;input placeholder=&quot;Enter your username&quot; key=&quot;username-input&quot;&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;template v-else&gt;</div><div class="line">  &lt;label&gt;Email&lt;/label&gt;</div><div class="line">  &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="4-v-show-vs-v-if"><a href="#4-v-show-vs-v-if" class="headerlink" title="4.v-show vs v-if"></a>4.v-show vs v-if</h3><p>前者类似于dispaly:none,并且不适用与template标签，也不能和v-else连用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/06/vue学习笔记-一条件渲染/" data-id="ciwcb5uxq000iyz9k8vu0y8y5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ES6学习笔记-一export" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/28/ES6学习笔记-一export/" class="article-date">
@@ -103,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/28/ES6学习笔记-一export/" data-id="ciw3hxhdn0007479kez5bl8zq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/28/ES6学习笔记-一export/" data-id="ciwcb5ux70009yz9k0sfv3one" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/export-模块化/">export 模块化</a></li></ul>
@@ -147,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/25/js中的三元操作符/" data-id="ciw3hxhe4000f479kqxley5fh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/25/js中的三元操作符/" data-id="ciwcb5uxl000eyz9k148x8062" class="article-share-link">Share</a>
       
       
     </footer>
@@ -184,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/25/ES6学习笔记-一class/" data-id="ciw3hxhdw000a479kpy8sbi8b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/25/ES6学习笔记-一class/" data-id="ciwcb5ux40008yz9k59m388n3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -223,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="ciw3hxhe6000h479k6zgd70wk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="ciwcb5uxo000hyz9k5wa590hf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
@@ -261,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/ES6学习笔记-一Promise/" data-id="ciw3hxhdm0006479kcveinpid" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/ES6学习笔记-一Promise/" data-id="ciwcb5uwr0004yz9kjtba71x9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/ES6学习笔记-一Generator/" data-id="ciw3hxhde0003479k9yje51de" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/21/ES6学习笔记-一Generator/" data-id="ciwcb5uwp0003yz9kb0wqyh1s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -358,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="ciw3hxhdh0004479kd8mhrtjn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="ciwcb5uwt0005yz9kjzo72teq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -409,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/03/ES6学习笔记-一Set数据结构的副本/" data-id="ciw3hxhe0000c479k6bo1c4gn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/03/ES6学习笔记-一Set数据结构的副本/" data-id="ciwcb5ux8000ayz9keqfz01o3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -463,47 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciw3hxhdp0008479kji0hw2ew" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ES6学习笔记-一Proxy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/31/ES6学习笔记-一Proxy/" class="article-date">
-  <time datetime="2016-10-31T04:57:51.000Z" itemprop="datePublished">2016-10-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/31/ES6学习笔记-一Proxy/">ES6学习笔记(四):Proxy</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。"><a href="#1-Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。" class="headerlink" title="1.Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。"></a>1.Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span> (<span class="params">target, key, receiver</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`getting <span class="subst">$&#123;key&#125;</span>!`</span>);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target, key, receiver);</div><div class="line">  &#125;,</div><div class="line">  set: <span class="function"><span class="keyword">function</span> (<span class="params">target, key, value, receiver</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`setting <span class="subst">$&#123;key&#125;</span>!`</span>);</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Reflect</span>.set(target, key, value, receiver);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="2-要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作"><a href="#2-要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作" class="headerlink" title="2.要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作"></a>2.要使得Proxy起作用，必须针对Proxy实例（上例是proxy对象）进行操作，而不是针对目标对象（上例是空对象）进行操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params">target, property</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">35</span>;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">proxy.time <span class="comment">// 35</span></div><div class="line">proxy.name <span class="comment">// 35</span></div><div class="line">proxy.title <span class="comment">// 35</span></div></pre></td></tr></table></figure>
-<h4 id="3-get"><a href="#3-get" class="headerlink" title="3.get()"></a>3.get()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  name: <span class="string">"张三"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(person, &#123;</div><div class="line">  get: <span class="function"><span class="keyword">function</span>(<span class="params">target, property</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (property <span class="keyword">in</span> target) &#123;</div><div class="line">      <span class="keyword">return</span> target[property];</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(<span class="string">"Property \""</span> + property + <span class="string">"\" does not exist."</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">proxy.name <span class="comment">// "张三"</span></div><div class="line">proxy.age <span class="comment">// 抛出一个错误</span></div></pre></td></tr></table></figure>
-<h4 id="4-get方法可以继承"><a href="#4-get方法可以继承" class="headerlink" title="4.get方法可以继承"></a>4.get方法可以继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> proto = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, &#123;</div><div class="line">  get(target, propertyKey, receiver) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'GET '</span>+propertyKey);</div><div class="line">    <span class="keyword">return</span> target[propertyKey];</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(proto);</div><div class="line">obj.xxx <span class="comment">// "GET xxx"</span></div></pre></td></tr></table></figure>
-<h4 id="5-set"><a href="#5-set" class="headerlink" title="5.set()"></a>5.set()</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> validator = &#123;</div><div class="line">  set: <span class="function"><span class="keyword">function</span>(<span class="params">obj, prop, value</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (prop === <span class="string">'age'</span>) &#123;</div><div class="line">      <span class="keyword">if</span> (!<span class="built_in">Number</span>.isInteger(value)) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'The age is not an integer'</span>);</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> (value &gt; <span class="number">200</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">RangeError</span>(<span class="string">'The age seems invalid'</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 对于age以外的属性，直接保存</span></div><div class="line">    obj[prop] = value;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="built_in">Proxy</span>(&#123;&#125;, validator);</div><div class="line"></div><div class="line">person.age = <span class="number">100</span>;</div><div class="line"></div><div class="line">person.age <span class="comment">// 100</span></div><div class="line">person.age = <span class="string">'young'</span> <span class="comment">// 报错</span></div><div class="line">person.age = <span class="number">300</span> <span class="comment">// 报错</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/31/ES6学习笔记-一Proxy/" data-id="ciw3hxhdk0005479khbxld87x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciwcb5uwx0006yz9kkkusc173" class="article-share-link">Share</a>
       
       
     </footer>
@@ -529,7 +532,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/export-模块化/">export 模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/export-模块化/">export 模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
     </div>
   </div>
 
@@ -539,7 +542,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/export-模块化/" style="font-size: 10px;">export 模块化</a> <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
+      <a href="/tags/export-模块化/" style="font-size: 10px;">export 模块化</a> <a href="/tags/vue-v-else-条件渲染/" style="font-size: 10px;">vue v-else 条件渲染</a> <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
     </div>
   </div>
 
@@ -548,7 +551,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
     </div>
   </div>
 
@@ -559,6 +562,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/06/vue学习笔记-一条件渲染/">vue学习笔记:条件渲染</a>
+          </li>
         
           <li>
             <a href="/2016/11/28/ES6学习笔记-一export/">ES6学习笔记(十一):export</a>
@@ -574,10 +581,6 @@
         
           <li>
             <a href="/2016/11/22/vue源码学习1--lang.js/">vue源码学习1--lang.js</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/22/ES6学习笔记-一Promise/">ES6学习笔记(九):Promise</a>
           </li>
         
       </ul>
