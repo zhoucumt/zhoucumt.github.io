@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Hexo</title>
+  <title>vue学习笔记:条件渲染 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="1.文档地址：http://vuejs.org/v2/guide/conditional.html
+2.新增语法:v-else-if:
+123456789101112&amp;lt;div v-if=&amp;quot;type === &amp;apos;A&amp;apos;&amp;quot;&amp;gt;  A&amp;lt;/div&amp;gt;&amp;lt;div v-else-if=&amp;quot;type === &amp;apos;B&amp;apos;&amp;quot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/09/07/hello-world/index.html">
+<meta property="og:title" content="vue学习笔记:条件渲染">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/vue学习笔记-一条件渲染/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-09-07T12:36:12.000Z">
+<meta property="og:description" content="1.文档地址：http://vuejs.org/v2/guide/conditional.html
+2.新增语法:v-else-if:
+123456789101112&amp;lt;div v-if=&amp;quot;type === &amp;apos;A&amp;apos;&amp;quot;&amp;gt;  A&amp;lt;/div&amp;gt;&amp;lt;div v-else-if=&amp;quot;type === &amp;apos;B&amp;apos;&amp;quot">
+<meta property="og:updated_time" content="2016-12-05T16:35:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="vue学习笔记:条件渲染">
+<meta name="twitter:description" content="1.文档地址：http://vuejs.org/v2/guide/conditional.html
+2.新增语法:v-else-if:
+123456789101112&amp;lt;div v-if=&amp;quot;type === &amp;apos;A&amp;apos;&amp;quot;&amp;gt;  A&amp;lt;/div&amp;gt;&amp;lt;div v-else-if=&amp;quot;type === &amp;apos;B&amp;apos;&amp;quot">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -66,10 +69,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-vue学习笔记-一条件渲染" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/09/07/hello-world/" class="article-date">
-  <time datetime="2016-09-07T12:36:12.000Z" itemprop="datePublished">2016-09-07</time>
+    <a href="/2016/12/06/vue学习笔记-一条件渲染/" class="article-date">
+  <time datetime="2016-12-05T16:23:20.000Z" itemprop="datePublished">2016-12-06</time>
 </a>
     
   </div>
@@ -80,7 +83,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      vue学习笔记:条件渲染
     </h1>
   
 
@@ -88,41 +91,30 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="1-文档地址："><a href="#1-文档地址：" class="headerlink" title="1.文档地址："></a>1.文档地址：</h3><p><a href="http://vuejs.org/v2/guide/conditional.html" target="_blank" rel="external">http://vuejs.org/v2/guide/conditional.html</a></p>
+<h3 id="2-新增语法"><a href="#2-新增语法" class="headerlink" title="2.新增语法:"></a>2.新增语法:</h3><p>v-else-if:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div v-if=&quot;type === &apos;A&apos;&quot;&gt;</div><div class="line">  A</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else-if=&quot;type === &apos;B&apos;&quot;&gt;</div><div class="line">  B</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else-if=&quot;type === &apos;C&apos;&quot;&gt;</div><div class="line">  C</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else&gt;</div><div class="line">  Not A/B/C</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="3-key属性："><a href="#3-key属性：" class="headerlink" title="3.key属性："></a>3.key属性：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;</div><div class="line">  &lt;label&gt;Username&lt;/label&gt;</div><div class="line">  &lt;input placeholder=&quot;Enter your username&quot; key=&quot;username-input&quot;&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;template v-else&gt;</div><div class="line">  &lt;label&gt;Email&lt;/label&gt;</div><div class="line">  &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h3 id="4-v-show-vs-v-if"><a href="#4-v-show-vs-v-if" class="headerlink" title="4.v-show vs v-if"></a>4.v-show vs v-if</h3><p>前者类似于dispaly:none,并且不适用与template标签，也不能和v-else连用</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/hello-world/" data-id="ciwcb5uxi000cyz9kxbrolxy4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/06/vue学习笔记-一条件渲染/" data-id="ciwcb5uxq000iyz9k8vu0y8y5" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2016/09/07/test/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          test
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/09/07/how-to-create-blog/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/11/28/ES6学习笔记-一export/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">本博客搭建方法</div>
+      <div class="article-nav-title">ES6学习笔记(十一):export</div>
     </a>
   
 </nav>
