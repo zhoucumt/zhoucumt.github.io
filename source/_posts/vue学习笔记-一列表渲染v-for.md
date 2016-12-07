@@ -1,5 +1,5 @@
 ---
-title: 'vue学习笔记:条件渲染'
+title: 'vue学习笔记:列表渲染'
 date: 2016-12-07 01:56:02
 tags: vue v-for 列表渲染
 ---
