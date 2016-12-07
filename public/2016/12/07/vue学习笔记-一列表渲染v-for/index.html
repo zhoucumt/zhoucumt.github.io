@@ -5,22 +5,19 @@
   
   <title>vue学习笔记:条件渲染 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.文档地址：http://vuejs.org/v2/guide/conditional.html
-2.新增语法:v-else-if:
-123456789101112&amp;lt;div v-if=&amp;quot;type === &amp;apos;A&amp;apos;&amp;quot;&amp;gt;  A&amp;lt;/div&amp;gt;&amp;lt;div v-else-if=&amp;quot;type === &amp;apos;B&amp;apos;&amp;quot">
+  <meta name="description" content="1.文档地址：http://vuejs.org/v2/guide/list.html
+2.对比：vue1中和vue2中循环数组时的序号：1234567// vue1:在 v-for 块内我们能完全访问父组件作用域内的属性，另有一个特殊变量 // $index，正如你猜到的，它是当前数组元素的索引：&amp;lt;ul id=&amp;quot;example-2&amp;quot;&amp;gt;  &amp;lt;li v-for=&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue学习笔记:条件渲染">
-<meta property="og:url" content="http://yoursite.com/2016/12/06/vue学习笔记-一条件渲染/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/12/07/vue学习笔记-一列表渲染v-for/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.文档地址：http://vuejs.org/v2/guide/conditional.html
-2.新增语法:v-else-if:
-123456789101112&amp;lt;div v-if=&amp;quot;type === &amp;apos;A&amp;apos;&amp;quot;&amp;gt;  A&amp;lt;/div&amp;gt;&amp;lt;div v-else-if=&amp;quot;type === &amp;apos;B&amp;apos;&amp;quot">
-<meta property="og:updated_time" content="2016-12-05T16:35:59.000Z">
+<meta property="og:description" content="1.文档地址：http://vuejs.org/v2/guide/list.html
+2.对比：vue1中和vue2中循环数组时的序号：1234567// vue1:在 v-for 块内我们能完全访问父组件作用域内的属性，另有一个特殊变量 // $index，正如你猜到的，它是当前数组元素的索引：&amp;lt;ul id=&amp;quot;example-2&amp;quot;&amp;gt;  &amp;lt;li v-for=&amp;">
+<meta property="og:updated_time" content="2016-12-06T18:01:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue学习笔记:条件渲染">
-<meta name="twitter:description" content="1.文档地址：http://vuejs.org/v2/guide/conditional.html
-2.新增语法:v-else-if:
-123456789101112&amp;lt;div v-if=&amp;quot;type === &amp;apos;A&amp;apos;&amp;quot;&amp;gt;  A&amp;lt;/div&amp;gt;&amp;lt;div v-else-if=&amp;quot;type === &amp;apos;B&amp;apos;&amp;quot">
+<meta name="twitter:description" content="1.文档地址：http://vuejs.org/v2/guide/list.html
+2.对比：vue1中和vue2中循环数组时的序号：1234567// vue1:在 v-for 块内我们能完全访问父组件作用域内的属性，另有一个特殊变量 // $index，正如你猜到的，它是当前数组元素的索引：&amp;lt;ul id=&amp;quot;example-2&amp;quot;&amp;gt;  &amp;lt;li v-for=&amp;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-vue学习笔记-一条件渲染" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-vue学习笔记-一列表渲染v-for" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/06/vue学习笔记-一条件渲染/" class="article-date">
-  <time datetime="2016-12-05T16:23:20.000Z" itemprop="datePublished">2016-12-06</time>
+    <a href="/2016/12/07/vue学习笔记-一列表渲染v-for/" class="article-date">
+  <time datetime="2016-12-06T17:56:02.000Z" itemprop="datePublished">2016-12-07</time>
 </a>
     
   </div>
@@ -91,19 +88,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-文档地址："><a href="#1-文档地址：" class="headerlink" title="1.文档地址："></a>1.文档地址：</h3><p><a href="http://vuejs.org/v2/guide/conditional.html" target="_blank" rel="external">http://vuejs.org/v2/guide/conditional.html</a></p>
-<h3 id="2-新增语法"><a href="#2-新增语法" class="headerlink" title="2.新增语法:"></a>2.新增语法:</h3><p>v-else-if:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div v-if=&quot;type === &apos;A&apos;&quot;&gt;</div><div class="line">  A</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else-if=&quot;type === &apos;B&apos;&quot;&gt;</div><div class="line">  B</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else-if=&quot;type === &apos;C&apos;&quot;&gt;</div><div class="line">  C</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div v-else&gt;</div><div class="line">  Not A/B/C</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+        <h3 id="1-文档地址："><a href="#1-文档地址：" class="headerlink" title="1.文档地址："></a>1.文档地址：</h3><p><a href="http://vuejs.org/v2/guide/list.html" target="_blank" rel="external">http://vuejs.org/v2/guide/list.html</a></p>
+<h3 id="2-对比：vue1中和vue2中循环数组时的序号："><a href="#2-对比：vue1中和vue2中循环数组时的序号：" class="headerlink" title="2.对比：vue1中和vue2中循环数组时的序号："></a>2.对比：vue1中和vue2中循环数组时的序号：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// vue1:在 v-for 块内我们能完全访问父组件作用域内的属性，另有一个特殊变量 </div><div class="line">// $index，正如你猜到的，它是当前数组元素的索引：</div><div class="line">&lt;ul id=&quot;example-2&quot;&gt;</div><div class="line">  &lt;li v-for=&quot;item in items&quot;&gt;</div><div class="line">    &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; $index &#125;&#125; - &#123;&#123; item.message &#125;&#125;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// vue2: (item, index) in items。注意item在前，index在后，</div><div class="line">// 和js和jq的eacha循环中函数中的参数的顺序相反</div><div class="line">&lt;ul id=&quot;example-2&quot;&gt;</div><div class="line">  &lt;li v-for=&quot;(item, index) in items&quot;&gt;</div><div class="line">    &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
 <h3 id="3-key属性："><a href="#3-key属性：" class="headerlink" title="3.key属性："></a>3.key属性：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;template v-if=&quot;loginType === &apos;username&apos;&quot;&gt;</div><div class="line">  &lt;label&gt;Username&lt;/label&gt;</div><div class="line">  &lt;input placeholder=&quot;Enter your username&quot; key=&quot;username-input&quot;&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;template v-else&gt;</div><div class="line">  &lt;label&gt;Email&lt;/label&gt;</div><div class="line">  &lt;input placeholder=&quot;Enter your email address&quot; key=&quot;email-input&quot;&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
 <h3 id="4-v-show-vs-v-if"><a href="#4-v-show-vs-v-if" class="headerlink" title="4.v-show vs v-if"></a>4.v-show vs v-if</h3><p>前者类似于dispaly:none,并且不适用与template标签，也不能和v-else连用</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/06/vue学习笔记-一条件渲染/" data-id="ciweh7g8d000l8r9km2mlrzuk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/07/vue学习笔记-一列表渲染v-for/" data-id="ciweh7g89000h8r9kmlmeftk6" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-v-for-列表渲染/">vue v-for 列表渲染</a></li></ul>
 
     </footer>
   </div>
@@ -111,19 +108,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/12/07/vue学习笔记-一列表渲染v-for/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          vue学习笔记:条件渲染
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/28/ES6学习笔记-一export/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/12/06/vue学习笔记-一条件渲染/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">ES6学习笔记(十一):export</div>
+      <div class="article-nav-title">vue学习笔记:条件渲染</div>
     </a>
   
 </nav>
