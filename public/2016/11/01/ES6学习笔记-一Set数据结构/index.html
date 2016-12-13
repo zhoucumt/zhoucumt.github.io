@@ -5,19 +5,19 @@
   
   <title>ES6学习笔记(五):Set数据结构 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
-3.">
+  <meta name="description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
+3.S">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6学习笔记(五):Set数据结构">
 <meta property="og:url" content="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
-3.">
-<meta property="og:updated_time" content="2016-11-02T05:22:53.000Z">
+<meta property="og:description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
+3.S">
+<meta property="og:updated_time" content="2016-12-13T03:28:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6学习笔记(五):Set数据结构">
-<meta name="twitter:description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
-3.">
+<meta name="twitter:description" content="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值2.Set本身是一个构造函数，用来生成Set数据结构。12345678var s = new Set();[2, 3, 5, 4, 5, 2, 2].map(x =&amp;gt; s.add(x));for (let i of s) &amp;#123;  console.log(i);&amp;#125;// 2 3 5 4
+3.S">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -88,7 +88,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。"><a href="#1-ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。" class="headerlink" title="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。"></a>1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</h4><h4 id="2-Set本身是一个构造函数，用来生成Set数据结构。"><a href="#2-Set本身是一个构造函数，用来生成Set数据结构。" class="headerlink" title="2.Set本身是一个构造函数，用来生成Set数据结构。"></a>2.Set本身是一个构造函数，用来生成Set数据结构。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].map(x =&gt; s.add(x));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> s) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2 3 5 4</span></div></pre></td></tr></table></figure>
+        <h4 id="1-ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值"><a href="#1-ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值" class="headerlink" title="1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值"></a>1.ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值</h4><h4 id="2-Set本身是一个构造函数，用来生成Set数据结构。"><a href="#2-Set本身是一个构造函数，用来生成Set数据结构。" class="headerlink" title="2.Set本身是一个构造函数，用来生成Set数据结构。"></a>2.Set本身是一个构造函数，用来生成Set数据结构。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].map(x =&gt; s.add(x));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> s) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2 3 5 4</span></div></pre></td></tr></table></figure>
 <h4 id="3-Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。"><a href="#3-Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。" class="headerlink" title="3.Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。"></a>3.Set函数可以接受一个数组（或类似数组的对象）作为参数，用来初始化。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 例一</span></div><div class="line"><span class="keyword">var</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>]);</div><div class="line">[...set]</div><div class="line"><span class="comment">// [1, 2, 3, 4]</span></div><div class="line"></div><div class="line"><span class="comment">// 例二</span></div><div class="line"><span class="keyword">var</span> items = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>]);</div><div class="line">items.size <span class="comment">// 5</span></div><div class="line"></div><div class="line"><span class="comment">// 例三</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">divs</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> [...document.querySelectorAll(<span class="string">'div'</span>)];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>(divs());</div><div class="line">set.size <span class="comment">// 56</span></div><div class="line"></div><div class="line"><span class="comment">// 类似于</span></div><div class="line">divs().forEach(div =&gt; set.add(div));</div><div class="line">set.size <span class="comment">// 56</span></div></pre></td></tr></table></figure>
 <h4 id="4-利用Set实现最简单的数组去重方法"><a href="#4-利用Set实现最简单的数组去重方法" class="headerlink" title="4.利用Set实现最简单的数组去重方法"></a>4.利用Set实现最简单的数组去重方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 去除数组的重复成员</span></div><div class="line">[...new <span class="built_in">Set</span>(array)]</div></pre></td></tr></table></figure>
 <h5 id="5-在Set内部，两个NaN是相等。"><a href="#5-在Set内部，两个NaN是相等。" class="headerlink" title="5.在Set内部，两个NaN是相等。"></a>5.在Set内部，两个NaN是相等。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"><span class="keyword">let</span> a = <span class="literal">NaN</span>;</div><div class="line"><span class="keyword">let</span> b = <span class="literal">NaN</span>;</div><div class="line">set.add(a);</div><div class="line">set.add(b);</div><div class="line">set <span class="comment">// Set &#123;NaN&#125;</span></div></pre></td></tr></table></figure>
@@ -110,9 +110,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciwehbjnf0009b09k955b515p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/01/ES6学习笔记-一Set数据结构/" data-id="ciwmy7mrk00065s9kpr5xmjp1" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/set/">set</a></li></ul>
+
     </footer>
   </div>
   
@@ -150,7 +152,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/export-模块化/">export 模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-for-列表渲染/">vue v-for 列表渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/export-模块化/">export 模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-for-列表渲染/">vue v-for 列表渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
     </div>
   </div>
 
@@ -160,7 +162,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/export-模块化/" style="font-size: 10px;">export 模块化</a> <a href="/tags/vue-v-else-条件渲染/" style="font-size: 10px;">vue v-else 条件渲染</a> <a href="/tags/vue-v-for-列表渲染/" style="font-size: 10px;">vue v-for 列表渲染</a> <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
+      <a href="/tags/export-模块化/" style="font-size: 10px;">export 模块化</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/vue-v-else-条件渲染/" style="font-size: 10px;">vue v-else 条件渲染</a> <a href="/tags/vue-v-for-列表渲染/" style="font-size: 10px;">vue v-for 列表渲染</a> <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
     </div>
   </div>
 
