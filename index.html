@@ -61,6 +61,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vue-router学习笔记-一基本用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/vue-router学习笔记-一基本用法/" class="article-date">
+  <time datetime="2016-12-15T09:12:29.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/vue-router学习笔记-一基本用法/">vue-router学习笔记1:基本用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-文档地址："><a href="#1-文档地址：" class="headerlink" title="1.文档地址："></a>1.文档地址：</h3><p><a href="http://router.vuejs.org/en/essentials/getting-started.html" target="_blank" rel="external">http://router.vuejs.org/en/essentials/getting-started.html</a></p>
+<h3 id="2-完整代码"><a href="#2-完整代码" class="headerlink" title="2.完整代码"></a>2.完整代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;title&gt;webpack+vue-router-demo&lt;/title&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        .router-link-active &#123;</div><div class="line">            color: red;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line"></div><div class="line">    &lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;https://unpkg.com/vue-router/dist/vue-router.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;app&quot;&gt;</div><div class="line">        &lt;h1&gt;Hello App!&lt;/h1&gt;</div><div class="line">        &lt;p&gt;</div><div class="line">            &lt;!-- use router-link component for navigation. --&gt;</div><div class="line">            &lt;!-- specify the link by passing the `to` prop. --&gt;</div><div class="line">            &lt;!-- &lt;router-link&gt; will be rendered as an `&lt;a&gt;` tag by default --&gt;</div><div class="line">            &lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;</div><div class="line">            &lt;router-link to=&quot;/bar&quot;&gt;Go to Bar&lt;/router-link&gt;</div><div class="line">        &lt;/p&gt;</div><div class="line"></div><div class="line">        &lt;!-- route outlet --&gt;</div><div class="line">        &lt;!-- component matched by the route will render here --&gt;</div><div class="line">        &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;script src=&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script type=&quot;text/babel&quot;&gt;</div><div class="line">        /**</div><div class="line">         * 0. If using a module system (e.g. via vue-cli), import Vue and VueRouter and </div><div class="line">         * then call Vue.use(VueRouter).</div><div class="line"></div><div class="line">         * 1. Define route components.</div><div class="line">         * These can be imported from other files</div><div class="line">         */</div><div class="line">        const Foo = &#123; template: &apos;&lt;div&gt;foo&lt;/div&gt;&apos; &#125;</div><div class="line">        const Bar = &#123; template: &apos;&lt;div&gt;bar&lt;/div&gt;&apos; &#125;</div><div class="line"></div><div class="line">        /** 2. Define some routes</div><div class="line">         * Each route should map to a component. The &quot;component&quot; can</div><div class="line">         * either be an actual component constructor created via</div><div class="line">         * Vue.extend(), or just a component options object.</div><div class="line">         * We&apos;ll talk about nested routes later.</div><div class="line">         */</div><div class="line">        const routes = [</div><div class="line">          &#123; path: &apos;/foo&apos;, component: Foo &#125;,</div><div class="line">          &#123; path: &apos;/bar&apos;, component: Bar &#125;</div><div class="line">        ]</div><div class="line"></div><div class="line">        /** 3. Create the router instance and pass the `routes` option</div><div class="line">        * You can pass in additional options here, but let&apos;s</div><div class="line">        * keep it simple for now.</div><div class="line">        */</div><div class="line">        const router = new VueRouter(&#123;</div><div class="line">          routes // short for routes: routes</div><div class="line">        &#125;)</div><div class="line"></div><div class="line">        /** 4. Create and mount the root instance.</div><div class="line">         * Make sure to inject the router with the router option to make the</div><div class="line">         * whole app router-aware.</div><div class="line">         */</div><div class="line">        const app = new Vue(&#123;</div><div class="line">          router</div><div class="line">        &#125;).$mount(&apos;#app&apos;)</div><div class="line"></div><div class="line">        // Now the app has started!</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="3-注意："><a href="#3-注意：" class="headerlink" title="3.注意："></a>3.注意：</h3><p><meta charset="utf-8">必不可少，不然浏览器会报错</p>
+<h3 id="4-步骤"><a href="#4-步骤" class="headerlink" title="4.步骤"></a>4.步骤</h3><p>1).创建跳转链接标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-link to=&quot;/bar&quot;&gt;Go to Bar&lt;/router-link&gt;</div></pre></td></tr></table></figure>
+<p>创建视图标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;router-view&gt;&lt;/router-view&gt;</div></pre></td></tr></table></figure>
+<p>2).定义路由组件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const Foo = &#123; template: &apos;&lt;div&gt;foo&lt;/div&gt;&apos; &#125;</div><div class="line">const Bar = &#123; template: &apos;&lt;div&gt;bar&lt;/div&gt;&apos; &#125;</div></pre></td></tr></table></figure>
+<p>3).定义路由路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const routes = [</div><div class="line">    &#123; path: &apos;/foo&apos;, component: Foo &#125;,</div><div class="line">    &#123; path: &apos;/bar&apos;, component: Bar &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>4).创建路由实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const router = new VueRouter(&#123;</div><div class="line">      routes // short for routes: routes</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>5). 创建vue实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const app = new Vue(&#123;</div><div class="line">      router</div><div class="line">&#125;).$mount(&apos;#app&apos;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/15/vue-router学习笔记-一基本用法/" data-id="ciwq65mnt000nl99kfkvaw1vp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-router/">vue-router</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-vue学习笔记-一列表渲染v-for" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/07/vue学习笔记-一列表渲染v-for/" class="article-date">
@@ -92,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/07/vue学习笔记-一列表渲染v-for/" data-id="ciwolkmfn000lig9k6f2bqvba" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/07/vue学习笔记-一列表渲染v-for/" data-id="ciwq65mno000il99kms86njt5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-v-for-列表渲染/">vue v-for 列表渲染</a></li></ul>
@@ -135,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/06/vue学习笔记-一条件渲染/" data-id="ciwolkmfr000pig9kh5at5paw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/06/vue学习笔记-一条件渲染/" data-id="ciwq65mnx000pl99kj2a76pel" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li></ul>
@@ -189,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/28/ES6学习笔记-一export/" data-id="ciwolkmfe000fig9ky313de5u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/28/ES6学习笔记-一export/" data-id="ciwq65mnf000dl99ktml0b2u2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/export-模块化/">export 模块化</a></li></ul>
@@ -233,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/25/js中的三元操作符/" data-id="ciwolkmfm000kig9kmn83rdju" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/25/js中的三元操作符/" data-id="ciwq65mns000ml99kpdhgtbyb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -270,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/25/ES6学习笔记-一class/" data-id="ciwolkmfb000cig9kseov4ofk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/25/ES6学习笔记-一class/" data-id="ciwq65mnc000cl99kj7pf56u2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -309,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="ciwolkmfs000qig9k9vgwsvv1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/vue源码学习1--lang.js/" data-id="ciwq65mo2000tl99k34129c4v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
@@ -347,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/22/ES6学习笔记-一Promise/" data-id="ciwolkmf50007ig9kxb53814d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/22/ES6学习笔记-一Promise/" data-id="ciwq65mn60007l99ktlu1vmv8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/ES6学习笔记-一Generator/" data-id="ciwolkmf30006ig9kynii9agd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/21/ES6学习笔记-一Generator/" data-id="ciwq65mmu0003l99kj8v7opwq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,63 +497,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="ciwolkmep0002ig9k70lpn3k7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/ES6学习笔记-一Iterator/" data-id="ciwq65mmv0004l99kz16pxuwt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iterator/">Iterator</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ES6学习笔记-一Map数据结构" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/03/ES6学习笔记-一Map数据结构/" class="article-date">
-  <time datetime="2016-11-03T06:25:51.000Z" itemprop="datePublished">2016-11-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/03/ES6学习笔记-一Map数据结构/">ES6学习笔记(六):Map数据结构</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-ES6提供了Map数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object结构提供了“字符串—值”的对应，Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现"><a href="#1-ES6提供了Map数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object结构提供了“字符串—值”的对应，Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现" class="headerlink" title="1.ES6提供了Map数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object结构提供了“字符串—值”的对应，Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现"></a>1.ES6提供了Map数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object结构提供了“字符串—值”的对应，Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line"><span class="keyword">var</span> o = &#123;p: <span class="string">'Hello World'</span>&#125;;</div><div class="line"></div><div class="line">m.set(o, <span class="string">'content'</span>)</div><div class="line">m.get(o) <span class="comment">// "content"</span></div><div class="line"></div><div class="line">m.has(o) <span class="comment">// true</span></div><div class="line">m.delete(o) <span class="comment">// true</span></div><div class="line">m.has(o) <span class="comment">// false</span></div></pre></td></tr></table></figure>
-<h4 id="2-作为构造函数，Map也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。"><a href="#2-作为构造函数，Map也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。" class="headerlink" title="2.作为构造函数，Map也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。"></a>2.作为构造函数，Map也可以接受一个数组作为参数。该数组的成员是一个个表示键值对的数组。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">  [<span class="string">'name'</span>, <span class="string">'张三'</span>],</div><div class="line">  [<span class="string">'title'</span>, <span class="string">'Author'</span>]</div><div class="line">]);</div><div class="line"></div><div class="line">map.size <span class="comment">// 2</span></div><div class="line">map.has(<span class="string">'name'</span>) <span class="comment">// true</span></div><div class="line">map.get(<span class="string">'name'</span>) <span class="comment">// "张三"</span></div><div class="line">map.has(<span class="string">'title'</span>) <span class="comment">// true</span></div><div class="line">map.get(<span class="string">'title'</span>) <span class="comment">// "Author"</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">  [<span class="literal">true</span>, <span class="string">'foo'</span>],</div><div class="line">  [<span class="string">'true'</span>, <span class="string">'bar'</span>]</div><div class="line">]);</div><div class="line"></div><div class="line">m.get(<span class="literal">true</span>) <span class="comment">// 'foo'</span></div><div class="line">m.get(<span class="string">'true'</span>) <span class="comment">// 'bar'</span></div></pre></td></tr></table></figure>
-<h4 id="3-如果读取一个未知的键，则返回undefined。"><a href="#3-如果读取一个未知的键，则返回undefined。" class="headerlink" title="3.如果读取一个未知的键，则返回undefined。"></a>3.如果读取一个未知的键，则返回undefined。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Map</span>().get(<span class="string">'asfddfsasadf'</span>)</div><div class="line"><span class="comment">// undefined</span></div></pre></td></tr></table></figure>
-<h4 id="4-注意，只有对同一个对象的引用，Map结构才将其视为同一个键。这一点要非常小心。"><a href="#4-注意，只有对同一个对象的引用，Map结构才将其视为同一个键。这一点要非常小心。" class="headerlink" title="4.注意，只有对同一个对象的引用，Map结构才将其视为同一个键。这一点要非常小心。"></a>4.注意，只有对同一个对象的引用，Map结构才将其视为同一个键。这一点要非常小心。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line"></div><div class="line">map.set([<span class="string">'a'</span>], <span class="number">555</span>);</div><div class="line">map.get([<span class="string">'a'</span>]) <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
-<h4 id="5-同样的值的两个实例，在Map结构中被视为两个键。"><a href="#5-同样的值的两个实例，在Map结构中被视为两个键。" class="headerlink" title="5.同样的值的两个实例，在Map结构中被视为两个键。"></a>5.同样的值的两个实例，在Map结构中被视为两个键。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line"></div><div class="line"><span class="keyword">var</span> k1 = [<span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> k2 = [<span class="string">'a'</span>];</div><div class="line"></div><div class="line">map</div><div class="line">.set(k1, <span class="number">111</span>)</div><div class="line">.set(k2, <span class="number">222</span>);</div><div class="line"></div><div class="line">map.get(k1) <span class="comment">// 111</span></div><div class="line">map.get(k2) <span class="comment">// 222</span></div></pre></td></tr></table></figure>
-<h4 id="6-如果Map的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map将其视为一个键，包括0和-0。另外，虽然NaN不严格相等于自身，但Map将其视为同一个键。"><a href="#6-如果Map的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map将其视为一个键，包括0和-0。另外，虽然NaN不严格相等于自身，但Map将其视为同一个键。" class="headerlink" title="6.如果Map的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map将其视为一个键，包括0和-0。另外，虽然NaN不严格相等于自身，但Map将其视为同一个键。"></a>6.如果Map的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map将其视为一个键，包括0和-0。另外，虽然NaN不严格相等于自身，但Map将其视为同一个键。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line"></div><div class="line">map.set(<span class="literal">NaN</span>, <span class="number">123</span>);</div><div class="line">map.get(<span class="literal">NaN</span>) <span class="comment">// 123</span></div><div class="line"></div><div class="line">map.set(<span class="number">-0</span>, <span class="number">123</span>);</div><div class="line">map.get(+<span class="number">0</span>) <span class="comment">// 123</span></div></pre></td></tr></table></figure>
-<h3 id="7-遍历方法：Map原生提供三个遍历器生成函数和一个遍历方法。"><a href="#7-遍历方法：Map原生提供三个遍历器生成函数和一个遍历方法。" class="headerlink" title="7.遍历方法：Map原生提供三个遍历器生成函数和一个遍历方法。"></a>7.遍历方法：Map原生提供三个遍历器生成函数和一个遍历方法。</h3><ul>
-<li>keys()：返回键名的遍历器。</li>
-<li>values()：返回键值的遍历器。</li>
-<li>entries()：返回所有成员的遍历器。</li>
-<li>forEach()：遍历Map的所有成员。</li>
-</ul>
-<h3 id="8-Map结构转为数组结构，比较快速的方法是结合使用扩展运算符（…）"><a href="#8-Map结构转为数组结构，比较快速的方法是结合使用扩展运算符（…）" class="headerlink" title="8.Map结构转为数组结构，比较快速的方法是结合使用扩展运算符（…）"></a>8.Map结构转为数组结构，比较快速的方法是结合使用扩展运算符（…）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</div><div class="line">  [<span class="number">1</span>, <span class="string">'one'</span>],</div><div class="line">  [<span class="number">2</span>, <span class="string">'two'</span>],</div><div class="line">  [<span class="number">3</span>, <span class="string">'three'</span>],</div><div class="line">]);</div><div class="line"></div><div class="line">[...map.keys()]</div><div class="line"><span class="comment">// [1, 2, 3]</span></div><div class="line"></div><div class="line">[...map.values()]</div><div class="line"><span class="comment">// ['one', 'two', 'three']</span></div><div class="line"></div><div class="line">[...map.entries()]</div><div class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></div><div class="line"></div><div class="line">[...map]</div><div class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></div></pre></td></tr></table></figure>
-<h4 id="9-Map转为对象"><a href="#9-Map转为对象" class="headerlink" title="9.Map转为对象"></a>9.Map转为对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">strMapToObj</span>(<span class="params">strMap</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> [k,v] <span class="keyword">of</span> strMap) &#123;</div><div class="line">    obj[k] = v;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> myMap = <span class="keyword">new</span> <span class="built_in">Map</span>().set(<span class="string">'yes'</span>, <span class="literal">true</span>).set(<span class="string">'no'</span>, <span class="literal">false</span>);</div><div class="line">strMapToObj(myMap)</div><div class="line"><span class="comment">// &#123; yes: true, no: false &#125;</span></div></pre></td></tr></table></figure>
-<h4 id="10-对象转为map"><a href="#10-对象转为map" class="headerlink" title="10.对象转为map"></a>10.对象转为map</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">objToStrMap</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> strMap = <span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</div><div class="line">    strMap.set(k, obj[k]);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> strMap;</div><div class="line">&#125;</div><div class="line"></div><div class="line">objToStrMap(&#123;yes: <span class="literal">true</span>, no: <span class="literal">false</span>&#125;)</div><div class="line"><span class="comment">// [ [ 'yes', true ], [ 'no', false ] ]</span></div></pre></td></tr></table></figure>
-<h4 id="11-WeakMap结构与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。"><a href="#11-WeakMap结构与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。" class="headerlink" title="11.WeakMap结构与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。"></a>11.WeakMap结构与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受其他类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/03/ES6学习笔记-一Map数据结构/" data-id="ciwolkmes0003ig9kbur81occ" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/">map</a></li></ul>
 
     </footer>
   </div>
@@ -525,7 +525,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/export-模块化/">export 模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-for-列表渲染/">vue v-for 列表渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Iterator/">Iterator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/export-模块化/">export 模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/">set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-else-条件渲染/">vue v-else 条件渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-v-for-列表渲染/">vue v-for 列表渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-源码/">vue 源码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-router/">vue-router</a></li></ul>
     </div>
   </div>
 
@@ -535,7 +535,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/export-模块化/" style="font-size: 10px;">export 模块化</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/vue-v-else-条件渲染/" style="font-size: 10px;">vue v-else 条件渲染</a> <a href="/tags/vue-v-for-列表渲染/" style="font-size: 10px;">vue v-for 列表渲染</a> <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a>
+      <a href="/tags/Iterator/" style="font-size: 10px;">Iterator</a> <a href="/tags/export-模块化/" style="font-size: 10px;">export 模块化</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/vue-v-else-条件渲染/" style="font-size: 10px;">vue v-else 条件渲染</a> <a href="/tags/vue-v-for-列表渲染/" style="font-size: 10px;">vue v-for 列表渲染</a> <a href="/tags/vue-源码/" style="font-size: 10px;">vue 源码</a> <a href="/tags/vue-router/" style="font-size: 10px;">vue-router</a>
     </div>
   </div>
 
@@ -557,6 +557,10 @@
       <ul>
         
           <li>
+            <a href="/2016/12/15/vue-router学习笔记-一基本用法/">vue-router学习笔记1:基本用法</a>
+          </li>
+        
+          <li>
             <a href="/2016/12/07/vue学习笔记-一列表渲染v-for/">vue学习笔记:列表渲染</a>
           </li>
         
@@ -570,10 +574,6 @@
         
           <li>
             <a href="/2016/11/25/js中的三元操作符/">js的多个三元操作符的用法</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/25/ES6学习笔记-一class/">ES6学习笔记(十):class</a>
           </li>
         
       </ul>
